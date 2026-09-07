@@ -1,0 +1,508 @@
+/* ============================================================
+   SP IT Academy — Motion System
+   Smooth, elegant, restrained animation. All motion degrades
+   gracefully and is fully disabled under prefers-reduced-motion.
+   ============================================================ */
+
+:root {
+    --ease-smooth: cubic-bezier(.4, 0, .2, 1);
+    --ease-out-cubic: cubic-bezier(.22, 1, .36, 1);
+    --ease-out-expo: cubic-bezier(.16, 1, .3, 1);
+    --ease-spring: cubic-bezier(.34, 1.4, .55, 1);
+}
+
+
+/* ========================================
+   KEYFRAMES
+======================================== */
+
+@keyframes heroRise {
+    from { opacity: 0; transform: translateY(26px); }
+    to   { opacity: 1; transform: none; }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: none; }
+}
+
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-12px); }
+    to   { opacity: 1; transform: none; }
+}
+
+@keyframes slideChange {
+    from { opacity: .25; transform: translateY(10px); }
+    to   { opacity: 1; transform: none; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50%      { transform: translateY(-10px) rotate(.6deg); }
+}
+
+@keyframes drift {
+    0%, 100% { transform: translate3d(0, 0, 0); }
+    50%      { transform: translate3d(-18px, 14px, 0); }
+}
+
+@keyframes cardRise {
+    from { opacity: 0; transform: translateY(26px) scale(.985); }
+    to   { opacity: 1; transform: none; }
+}
+
+@keyframes lineWipe {
+    to { width: 64px; }
+}
+
+@keyframes ctaPulse {
+    0%, 100% { opacity: .45; }
+    50%      { opacity: 1; }
+}
+
+@keyframes faqOpen {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: none; }
+}
+
+
+/* ========================================
+   PAGE + HEADER
+======================================== */
+
+/* Scroll progress bar (index) */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    height: 3px;
+    width: 0;
+
+    z-index: 60;
+
+    background: linear-gradient(90deg, var(--primary), var(--secondary), var(--yellow));
+
+    transition: width .12s linear;
+
+    pointer-events: none;
+}
+
+/* Sticky header behaviour — only engages where the header is fixed
+   (the home page; inner pages keep their inline position:relative). */
+.site-header {
+    position: fixed;
+
+    transition:
+        transform .45s var(--ease-out-cubic),
+        background .35s ease,
+        box-shadow .35s ease,
+        backdrop-filter .35s ease;
+
+    will-change: transform;
+}
+
+.site-header.scrolled {
+    background: rgba(255, 255, 255, .82);
+
+    box-shadow: 0 6px 28px rgba(20, 10, 5, .08);
+
+    backdrop-filter: blur(14px) saturate(160%);
+}
+
+.site-header.nav-hidden {
+    transform: translateY(-100%);
+}
+
+.navbar {
+    transition: height .4s var(--ease-out-cubic);
+}
+
+.site-header.scrolled .navbar {
+    height: 68px;
+}
+
+.navbar .brand {
+    animation: fadeDown .7s var(--ease-out-cubic) both;
+}
+
+@media (min-width: 701px) {
+    .nav-links > * {
+        animation: fadeDown .6s var(--ease-out-cubic) both;
+    }
+    .nav-links > *:nth-child(1) { animation-delay: .06s; }
+    .nav-links > *:nth-child(2) { animation-delay: .12s; }
+    .nav-links > *:nth-child(3) { animation-delay: .18s; }
+    .nav-links > *:nth-child(4) { animation-delay: .24s; }
+    .nav-links > *:nth-child(5) { animation-delay: .30s; }
+}
+
+
+/* ========================================
+   HERO ENTRANCE
+======================================== */
+
+.hero-eyebrow {
+    animation: heroRise .8s var(--ease-out-expo) .05s both;
+}
+
+.hero-actions .btn-ghost {
+    animation: heroRise .9s var(--ease-out-expo) .34s both;
+}
+
+.hero-visual {
+    animation: heroRise 1s var(--ease-out-expo) .28s both;
+}
+
+.hero-controls {
+    animation: fadeUp .8s var(--ease-out-cubic) .5s both;
+}
+
+/* Title / description / primary button / code are re-rendered by the
+   carousel; it toggles .slide-change on every slide (including the first),
+   so that class doubles as their entrance animation. Kept synchronised
+   and starting from a partial opacity so nothing flickers out mid-swap. */
+.slide-change {
+    animation: slideChange .55s var(--ease-out-cubic) both;
+}
+
+#hero-description.slide-change { animation-duration: .6s; }
+#hero-primary.slide-change     { animation-duration: .65s; }
+
+/* Progress bar fill glides between slides */
+.progress-track span {
+    transition: width .6s var(--ease-out-expo);
+}
+
+
+/* ========================================
+   HERO DECORATION
+======================================== */
+
+.floating-card {
+    animation: float 6s var(--ease-smooth) infinite;
+
+    transition:
+        transform .35s var(--ease-spring),
+        box-shadow .35s ease;
+}
+
+.card-two   { animation-delay: 1.2s; }
+.card-three { animation-delay: 2.4s; }
+
+.floating-card:hover {
+    transform: translateY(-4px) scale(1.04);
+
+    box-shadow: 0 24px 50px rgba(80, 40, 20, .18);
+}
+
+.hero-orb {
+    animation: drift 20s ease-in-out infinite;
+}
+
+.orb-b {
+    animation-duration: 26s;
+    animation-direction: reverse;
+}
+
+
+/* ========================================
+   SCROLL REVEAL
+   (JS toggles .visible and sets per-item stagger delay)
+======================================== */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(34px);
+
+    transition:
+        opacity .8s var(--ease-out-cubic),
+        transform .8s var(--ease-out-cubic);
+
+    will-change: opacity, transform;
+}
+
+.reveal[data-reveal="left"]  { transform: translateX(-32px); }
+.reveal[data-reveal="right"] { transform: translateX(32px); }
+.reveal[data-reveal="zoom"]  { transform: scale(.92); }
+.reveal[data-reveal="fade"]  { transform: none; }
+
+/* Off-screen reveal transforms must never widen the page */
+main {
+    overflow-x: clip;
+}
+
+.reveal.visible {
+    opacity: 1;
+
+    transform: none;
+
+    will-change: auto;
+}
+
+
+/* Animated underline that draws itself once a heading appears */
+.section-heading h2 {
+    position: relative;
+}
+
+.section-heading.visible h2::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -12px;
+
+    height: 3px;
+    width: 0;
+
+    border-radius: 3px;
+
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+
+    animation: lineWipe .8s .25s var(--ease-out-cubic) forwards;
+}
+
+
+/* Trust strip items ripple in once the strip is revealed */
+.trust-items.visible span {
+    animation: fadeUp .5s var(--ease-out-cubic) both;
+}
+
+.trust-items.visible span:nth-child(2) { animation-delay: .08s; }
+.trust-items.visible span:nth-child(3) { animation-delay: .16s; }
+.trust-items.visible span:nth-child(4) { animation-delay: .24s; }
+
+
+/* Gallery tiles stagger + settle once the grid is revealed */
+.gallery-grid.visible div {
+    animation: cardRise .6s var(--ease-out-cubic) both;
+
+    transition: transform .4s var(--ease-spring), box-shadow .4s ease;
+}
+
+.gallery-grid.visible div:nth-child(2) { animation-delay: .09s; }
+.gallery-grid.visible div:nth-child(3) { animation-delay: .18s; }
+.gallery-grid.visible div:nth-child(4) { animation-delay: .27s; }
+
+.gallery-grid div:hover {
+    transform: translateY(-6px) scale(1.02);
+
+    box-shadow: 0 22px 45px rgba(255, 107, 44, .18);
+}
+
+
+/* ========================================
+   COURSE CARDS (injected + re-rendered on filter)
+======================================== */
+
+.course-grid .course-card {
+    opacity: 0;
+
+    animation: cardRise .55s var(--ease-out-cubic) forwards;
+    animation-delay: calc(var(--i, 0) * 55ms);
+}
+
+.course-card a {
+    display: inline-block;
+
+    transition: transform .25s var(--ease-out-cubic);
+}
+
+.course-card:hover a {
+    transform: translateX(4px);
+}
+
+
+/* ========================================
+   MICRO-INTERACTIONS
+======================================== */
+
+/* Button press + sheen sweep on the primary CTA */
+.btn:active {
+    transform: translateY(-1px) scale(.985);
+}
+
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+
+    isolation: isolate;
+}
+
+.btn-primary::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    z-index: -1;
+
+    background: linear-gradient(
+        120deg,
+        transparent 30%,
+        rgba(255, 255, 255, .38) 50%,
+        transparent 70%
+    );
+
+    transform: translateX(-120%);
+
+    transition: transform .7s var(--ease-out-cubic);
+}
+
+.btn-primary:hover::after {
+    transform: translateX(120%);
+}
+
+.filter {
+    transition:
+        color .25s ease,
+        background .25s ease,
+        border-color .25s ease,
+        transform .2s var(--ease-spring);
+}
+
+.filter:active {
+    transform: scale(.95);
+}
+
+.feature-card span {
+    display: inline-block;
+
+    transition: transform .3s var(--ease-spring);
+}
+
+.feature-card:hover span {
+    transform: scale(1.35);
+}
+
+/* Journey path fills its number badge on hover */
+.journey-step b {
+    display: inline-block;
+
+    transition: transform .3s var(--ease-spring);
+}
+
+.journey-step:hover b {
+    transform: translateX(4px);
+}
+
+
+/* ========================================
+   FAQ — animated disclosure
+======================================== */
+
+.faq-list summary {
+    position: relative;
+
+    list-style: none;
+
+    padding-right: 34px;
+
+    transition: color .25s ease;
+}
+
+.faq-list summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-list summary::after {
+    content: "";
+
+    position: absolute;
+    right: 6px;
+    top: 50%;
+
+    width: 9px;
+    height: 9px;
+
+    margin-top: -6px;
+
+    border-right: 2px solid var(--primary);
+    border-bottom: 2px solid var(--primary);
+
+    transform: rotate(45deg);
+
+    transition: transform .3s var(--ease-out-cubic);
+}
+
+.faq-list details[open] summary {
+    color: var(--primary-dark);
+}
+
+.faq-list details[open] summary::after {
+    transform: rotate(225deg);
+}
+
+.faq-list details[open] p {
+    animation: faqOpen .35s var(--ease-out-cubic);
+}
+
+
+/* ========================================
+   FINAL CTA — slow ambient glow
+======================================== */
+
+.final-cta::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: radial-gradient(
+        circle at 80% 120%,
+        rgba(255, 255, 255, .16),
+        transparent 42%
+    );
+
+    animation: ctaPulse 8s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+.final-cta .container {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ========================================
+   INNER PAGES — staggered load-in
+   (matches only the hero block on About / Courses / Contact /
+   Placements / individual course pages; no JS required)
+======================================== */
+
+.section-light .container.narrow > * {
+    animation: fadeUp .7s var(--ease-out-cubic) both;
+}
+
+.section-light .container.narrow > *:nth-child(1) { animation-delay: .05s; }
+.section-light .container.narrow > *:nth-child(2) { animation-delay: .14s; }
+.section-light .container.narrow > *:nth-child(3) { animation-delay: .23s; }
+.section-light .container.narrow > *:nth-child(4) { animation-delay: .32s; }
+
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+
+        animation-duration: .01ms !important;
+        animation-delay: .01ms !important;
+        animation-iteration-count: 1 !important;
+
+        transition-duration: .01ms !important;
+        transition-delay: 0 !important;
+    }
+
+    .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
