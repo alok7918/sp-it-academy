@@ -14,7 +14,7 @@
 <body>
   <header class="site-header" id="site-header">
     <nav class="navbar container" aria-label="Main navigation">
-      <a class="brand" href="./"><img src="assets/images/logo/logo.svg" alt="SP IT Academy"></a>
+      <a class="brand" href="./"><img src="assets/images/logo/Logo.png" alt="SP IT Academy"></a>
       <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
       <div class="nav-links">
         <a href="./">Home</a>
@@ -27,42 +27,123 @@
   </header>
 
   <main>
-    <section class="hero" aria-label="Featured programs">
-      <div class="hero-bg"></div>
-      <div class="hero-orb orb-a"></div><div class="hero-orb orb-b"></div>
-      <div class="container hero-inner">
-        <div class="hero-copy">
-          <span class="eyebrow hero-eyebrow">JOB-READY IT TRAINING</span>
-          <h1 id="hero-title">Build Skills.<br><span>Build Your Career.</span></h1>
-          <p id="hero-description">Learn industry-relevant technology, build real projects and prepare for your next career opportunity.</p>
-          <div class="hero-actions">
-            <a id="hero-primary" class="btn btn-primary" href="courses/">Explore Courses</a>
-            <a class="btn btn-ghost" href="contact/">Talk to a Counselor</a>
-          </div>
-        </div>
-        <div class="hero-visual" aria-hidden="true">
-          <div class="visual-card main-visual">
-            <div class="code-top"><i></i><i></i><i></i><span>career.js</span></div>
-            <pre id="hero-code"><code>const career = {
-  skills: ["Code", "Data"],
-  projects: true,
-  jobReady: true
-};</code></pre>
-          </div>
-          <div class="floating-card card-one">⚡ <b>Live Projects</b></div>
-          <div class="floating-card card-two">◈ <b>Industry Skills</b></div>
-          <div class="floating-card card-three">✓ <b>Career Support</b></div>
-        </div>
+ <section class="hero" aria-label="Featured programs">
+
+  <div class="hero-bg"></div>
+
+  <div class="container hero-inner">
+
+    <!-- LEFT CONTENT -->
+    <div class="hero-copy">
+
+      <span class="eyebrow hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        JOB-READY IT TRAINING
+      </span>
+
+      <h1 id="hero-title">
+        Turn Your
+        <br>
+        <span>Curiosity</span>
+        <br>
+        Into a Career.
+      </h1>
+
+      <p id="hero-description">
+        Learn in-demand tech skills, work on real projects,
+        and get expert guidance to launch your career
+        in the IT industry.
+      </p>
+
+      <div class="hero-actions">
+
+        <a id="hero-primary" class="btn btn-primary" href="courses/">
+          Explore Courses
+          <span class="btn-arrow">→</span>
+        </a>
+
+        <a class="btn btn-ghost" href="contact/">
+          <span class="counselor-icon">♙</span>
+          Talk to a Counselor
+        </a>
+
       </div>
-      <div class="container hero-controls">
-        <div class="slide-label"><span id="slide-number">01</span><span>/ 04</span></div>
-        <div class="progress-track"><span id="progress-bar"></span></div>
-        <div class="carousel-buttons">
-          <button id="prev-slide" aria-label="Previous slide">←</button>
-          <button id="next-slide" aria-label="Next slide">→</button>
+
+      <div class="hero-benefits">
+
+        <div class="hero-benefit">
+          <span class="benefit-icon purple">♢</span>
+          <span>Practical<br>Learning</span>
         </div>
+
+        <div class="hero-benefit">
+          <span class="benefit-icon blue">▣</span>
+          <span>Real-world<br>Projects</span>
+        </div>
+
+        <div class="hero-benefit">
+          <span class="benefit-icon green">▣</span>
+          <span>Career<br>Support</span>
+        </div>
+
+        <div class="hero-benefit">
+          <span class="benefit-icon violet">♧</span>
+          <span>Learn from<br>Industry Experts</span>
+        </div>
+
       </div>
-    </section>
+
+      <div class="hero-handwriting">
+        <span>Your</span>
+        <br>
+        <span>Future Starts Here!</span>
+        <b>↗</b>
+      </div>
+
+    </div>
+
+
+    <!-- RIGHT VISUAL -->
+    <div class="hero-visual">
+
+      <img
+        src="assets/images/sp-it-academy-hero-art.png"
+        alt="Student learning technology with laptop"
+        class="hero-art"
+      >
+
+    </div>
+
+  </div>
+
+
+  <!-- SLIDER CONTROLS -->
+  <div class="container hero-controls">
+
+    <div class="slide-label">
+      <strong id="slide-number">01</strong>
+      <span>/ 04</span>
+    </div>
+
+    <div class="progress-track">
+      <span id="progress-bar"></span>
+    </div>
+
+    <div class="carousel-buttons">
+
+      <button id="prev-slide" aria-label="Previous slide">
+        ←
+      </button>
+
+      <button id="next-slide" aria-label="Next slide">
+        →
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
 
     <section class="trust-strip">
       <div class="container trust-items">
@@ -70,16 +151,264 @@
       </div>
     </section>
 
-    <section class="section" id="success">
-      <div class="container">
-        <div class="section-heading reveal"><span class="eyebrow">STUDENT SUCCESS</span><h2>Every learner has a story.</h2><p>Showcase authentic student journeys, projects and career outcomes here.</p></div>
-        <div class="student-grid">
-          <article class="student-card reveal"><div class="avatar-placeholder">S1</div><div><h3>Student Success Story</h3><p>Course → Project → Career</p></div></article>
-          <article class="student-card reveal"><div class="avatar-placeholder">S2</div><div><h3>Student Success Story</h3><p>Course → Project → Career</p></div></article>
-          <article class="student-card reveal"><div class="avatar-placeholder">S3</div><div><h3>Student Success Story</h3><p>Course → Project → Career</p></div></article>
+  <!-- =========================================================
+     STUDENT SUCCESS
+     ========================================================= -->
+
+<section class="section success-section" id="success">
+
+  <div class="container">
+
+    <div class="section-heading reveal">
+
+      <span class="eyebrow">STUDENT SUCCESS</span>
+
+      <h2>Every learner has a story.</h2>
+
+      <p>
+        From learning new skills to building real projects
+        and starting careers — see the journeys of our students.
+      </p>
+
+    </div>
+
+
+    <!-- SUCCESS CAROUSEL -->
+
+    <div class="success-carousel reveal">
+
+      <!-- SLIDE 01 : IMAGE -->
+
+      <article class="success-slide active">
+
+        <img
+          src="assets/images/student-success-01.jpg"
+          alt="SP IT Academy students working on technology projects"
+        >
+
+        <div class="success-overlay">
+
+          <div class="success-content">
+
+            <span class="success-tag">
+              STUDENT JOURNEY
+            </span>
+
+            <h3>
+              Learn. Build. Grow.
+            </h3>
+
+            <p>
+              Students turning their skills into real-world
+              technology projects.
+            </p>
+
+          </div>
+
         </div>
+
+      </article>
+
+
+      <!-- SLIDE 02 : TESTIMONIAL VIDEO -->
+
+      <article class="success-slide">
+
+        <video
+          class="success-video"
+          muted
+          loop
+          playsinline
+          preload="metadata"
+        >
+
+          <source
+            src="assets/videos/student-testimonial.mp4"
+            type="video/mp4"
+          >
+
+        </video>
+
+
+        <div class="success-overlay">
+
+          <div class="success-content">
+
+            <span class="success-tag">
+              STUDENT TESTIMONIAL
+            </span>
+
+            <h3>
+              From Classroom to Career
+            </h3>
+
+            <p>
+              Hear directly from our students about
+              their learning experience.
+            </p>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- SLIDE 03 : PROJECT VIDEO -->
+
+      <article class="success-slide">
+
+        <video
+          class="success-video"
+          muted
+          loop
+          playsinline
+          preload="metadata"
+        >
+
+          <source
+            src="assets/videos/student-project.mp4"
+            type="video/mp4"
+          >
+
+        </video>
+
+
+        <div class="success-overlay">
+
+          <div class="success-content">
+
+            <span class="success-tag">
+              REAL PROJECTS
+            </span>
+
+            <h3>
+              Skills in Action
+            </h3>
+
+            <p>
+              See students building practical projects
+              using real industry technologies.
+            </p>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- SLIDE 04 : CAREER VIDEO -->
+
+      <article class="success-slide">
+
+        <video
+          class="success-video"
+          muted
+          loop
+          playsinline
+          preload="metadata"
+        >
+
+          <source
+            src="assets/videos/student-career.mp4"
+            type="video/mp4"
+          >
+
+        </video>
+
+
+        <div class="success-overlay">
+
+          <div class="success-content">
+
+            <span class="success-tag">
+              CAREER SUCCESS
+            </span>
+
+            <h3>
+              Skills That Open Doors
+            </h3>
+
+            <p>
+              Follow the journey from training and projects
+              to professional opportunities.
+            </p>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- CAROUSEL CONTROLS -->
+
+      <button
+        class="success-prev"
+        id="success-prev"
+        aria-label="Previous student success story"
+      >
+        ←
+      </button>
+
+      <button
+        class="success-next"
+        id="success-next"
+        aria-label="Next student success story"
+      >
+        →
+      </button>
+
+
+      <!-- CAROUSEL BOTTOM -->
+
+      <div class="success-controls">
+
+        <div class="success-counter">
+
+          <strong id="success-number">01</strong>
+
+          <span>/ 04</span>
+
+        </div>
+
+
+        <div class="success-dots">
+
+          <button
+            class="success-dot active"
+            data-slide="0"
+            aria-label="Go to slide 1"
+          ></button>
+
+          <button
+            class="success-dot"
+            data-slide="1"
+            aria-label="Go to slide 2"
+          ></button>
+
+          <button
+            class="success-dot"
+            data-slide="2"
+            aria-label="Go to slide 3"
+          ></button>
+
+          <button
+            class="success-dot"
+            data-slide="3"
+            aria-label="Go to slide 4"
+          ></button>
+
+        </div>
+
       </div>
-    </section>
+
+    </div>
+
+  </div>
+
+</section>
 
     <section class="section section-dark" id="programs">
       <div class="container">

@@ -1,1 +1,404 @@
-@media(max-width:1000px){.nav-links{gap:18px}.hero-inner{grid-template-columns:1fr}.hero{min-height:800px}.hero-copy{padding-top:35px}.hero-visual{height:330px}.hero-controls{bottom:22px}.feature-grid{grid-template-columns:repeat(2,1fr)}.course-grid{grid-template-columns:repeat(2,1fr)}.journey{grid-template-columns:repeat(3,1fr)}.split-content{grid-template-columns:1fr}.gallery-grid{max-width:700px}.student-grid{grid-template-columns:1fr 1fr}}@media(max-width:700px){.navbar{height:70px}.brand img{width:145px}.menu-toggle{display:block;position:relative;z-index:22}.nav-links{position:absolute;top:70px;left:4%;right:4%;display:none;flex-direction:column;align-items:stretch;padding:20px;background:#0d1326;border:1px solid rgba(255,255,255,.1);border-radius:18px;box-shadow:0 25px 60px rgba(0,0,0,.3)}.nav-links.open{display:flex}.nav-cta{text-align:center}.hero{min-height:760px;padding-top:60px}.hero h1{font-size:clamp(2.7rem,13vw,4.2rem)}.hero-copy p{font-size:1rem}.hero-visual{height:290px}.main-visual{min-height:230px}.floating-card{font-size:.72rem;padding:9px 11px}.card-one{left:-5px;top:10px}.card-two{right:-5px;top:95px}.card-three{left:15px;bottom:10px}.hero-controls{width:92%;gap:10px}.progress-track{flex:1}.trust-items{display:grid;grid-template-columns:1fr 1fr;font-size:.78rem}.section{padding:72px 0}.student-grid,.course-grid,.feature-grid{grid-template-columns:1fr}.journey{grid-template-columns:1fr 1fr}.journey-step{min-height:120px}.footer-grid{grid-template-columns:1fr 1fr;gap:28px}.footer-grid>div:first-child{grid-column:1/-1}}@media(max-width:420px){.hero-actions .btn{width:100%}.journey{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}}
+/* =========================================================
+   TABLET / SMALL DESKTOP
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .hero {
+    min-height: 720px;
+  }
+
+  .hero-inner {
+    grid-template-columns: 46% 54%;
+  }
+
+  .hero h1 {
+    font-size:
+      clamp(52px, 6vw, 72px);
+  }
+
+  .hero-copy p {
+    font-size: 18px;
+  }
+
+  .hero-visual {
+    height: 570px;
+  }
+
+  .hero-art {
+    max-width: 700px;
+  }
+
+  .hero-benefits {
+    gap: 16px;
+  }
+
+  .hero-benefit {
+    font-size: 12px;
+  }
+
+  .benefit-icon {
+    width: 34px;
+    height: 34px;
+
+    flex-basis: 34px;
+  }
+
+  .progress-track {
+    width: 260px;
+  }
+
+  .feature-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .journey {
+    grid-template-columns:
+      repeat(3, 1fr);
+  }
+
+  .course-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+  .hero {
+    min-height: auto;
+
+    padding:
+      110px
+      0
+      100px;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+  .hero-copy {
+    max-width: 650px;
+
+    margin-inline: auto;
+
+    text-align: center;
+  }
+
+  .hero-eyebrow {
+    margin-inline: auto;
+  }
+
+  .hero h1 {
+    font-size:
+      clamp(48px, 9vw, 68px);
+  }
+
+  .hero-copy p {
+    margin-inline: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-benefits {
+    justify-content: center;
+  }
+
+  .hero-handwriting {
+    display: none;
+  }
+
+  .hero-visual {
+    height: 500px;
+
+    margin-top: -15px;
+  }
+
+  .hero-art {
+    width: 100%;
+
+    max-width: 720px;
+
+    transform: none;
+  }
+
+  .hero-controls {
+    justify-content: center;
+  }
+
+  .progress-track {
+    width: 180px;
+  }
+
+  .split-content {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+  .student-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns:
+      1fr 1fr;
+  }
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+
+    top: 76px;
+
+    left: 4%;
+
+    width: 92%;
+
+    padding: 20px;
+
+    display: none;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 14px;
+
+    background: #ffffff;
+
+    color: #111827;
+
+    border-radius: 18px;
+
+    box-shadow:
+      0 20px 50px rgba(15, 23, 42, 0.12);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 8px 5px;
+  }
+
+  .nav-cta {
+    text-align: center;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .container {
+    width: 94%;
+  }
+
+  .hero {
+    padding:
+      95px
+      0
+      90px;
+  }
+
+  .hero-inner {
+    width: 94%;
+  }
+
+  .hero-eyebrow {
+    padding: 11px 16px;
+
+    font-size: 10px;
+
+    letter-spacing: 0.13em;
+  }
+
+  .eyebrow-dot {
+    width: 10px;
+    height: 10px;
+
+    flex-basis: 10px;
+  }
+
+  .hero h1 {
+    font-size:
+      clamp(43px, 13vw, 58px);
+
+    letter-spacing: -0.055em;
+  }
+
+  .hero-copy p {
+    font-size: 16px;
+
+    line-height: 1.5;
+
+    padding-inline: 10px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    padding-inline: 15px;
+  }
+
+  .btn {
+    width: 100%;
+
+    min-height: 58px;
+
+    font-size: 16px;
+  }
+
+  .hero-benefits {
+    display: grid;
+
+    grid-template-columns:
+      1fr 1fr;
+
+    text-align: left;
+
+    gap: 16px;
+
+    margin-top: 5px;
+  }
+
+  .hero-benefit {
+    font-size: 12px;
+  }
+
+  .hero-visual {
+    height: 370px;
+
+    margin-top: 0;
+  }
+
+  .hero-art {
+    width: 120%;
+
+    max-width: none;
+
+    transform:
+      translateX(-5%);
+  }
+
+  .hero-controls {
+    bottom: 22px;
+
+    gap: 10px;
+  }
+
+  .slide-label {
+    min-width: 42px;
+
+    font-size: 12px;
+  }
+
+  .slide-label strong {
+    font-size: 14px;
+  }
+
+  .progress-track {
+    width: 120px;
+
+    height: 4px;
+  }
+
+  .carousel-buttons {
+    margin-left: 5px;
+
+    gap: 5px;
+  }
+
+  .carousel-buttons button {
+    width: 38px;
+    height: 38px;
+
+    font-size: 17px;
+  }
+
+  .trust-items {
+    display: grid;
+
+    grid-template-columns:
+      1fr 1fr;
+
+    gap: 10px;
+
+    font-size: 0.75rem;
+  }
+
+  .section {
+    padding: 70px 0;
+  }
+
+  .section-heading {
+    margin-bottom: 30px;
+  }
+
+  .section-heading h2 {
+    font-size:
+      clamp(2rem, 9vw, 2.8rem);
+  }
+
+  .course-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .journey {
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+  .journey-step {
+    min-height: 125px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer {
+    padding: 50px 0 20px;
+  }
+
+  .footer-bottom {
+    margin-top: 30px;
+  }
+}

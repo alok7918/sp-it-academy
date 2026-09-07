@@ -1,1 +1,146 @@
-.hero-copy,.hero-visual{animation:heroIn .8s ease both}.floating-card{animation:float 5s ease-in-out infinite}.card-two{animation-delay:1s}.card-three{animation-delay:2s}@keyframes heroIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}.slide-change{animation:slideChange .55s ease both}@keyframes slideChange{from{opacity:.2;transform:translateY(12px)}to{opacity:1;transform:none}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
+
+.reveal {
+  opacity: 0;
+
+  transform: translateY(28px);
+
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+
+  transform: none;
+}
+
+
+/* =========================================================
+   HERO ENTRANCE
+   ========================================================= */
+
+.hero-copy {
+  animation:
+    heroCopyIn 0.8s ease both;
+}
+
+.hero-visual {
+  animation:
+    heroVisualIn 1s ease 0.15s both;
+}
+
+.hero-controls {
+  animation:
+    heroControlsIn 0.8s ease 0.35s both;
+}
+
+
+/* =========================================================
+   HERO IMAGE FLOAT
+   ========================================================= */
+
+.hero-art {
+  animation:
+    heroFloat 6s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   KEYFRAMES
+   ========================================================= */
+
+@keyframes heroCopyIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: none;
+  }
+}
+
+
+@keyframes heroVisualIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateX(35px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateX(0)
+      scale(1);
+  }
+}
+
+
+@keyframes heroControlsIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translate(-50%, 15px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translate(-50%, 0);
+  }
+}
+
+
+@keyframes heroFloat {
+
+  0%,
+  100% {
+    transform:
+      translateX(18px)
+      translateY(-4px);
+  }
+
+  50% {
+    transform:
+      translateX(18px)
+      translateY(-12px);
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    scroll-behavior: auto !important;
+
+    transition-duration: 0.01ms !important;
+  }
+
+}
