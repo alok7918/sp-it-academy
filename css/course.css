@@ -131,6 +131,12 @@ select {
   color: var(--muted);
 }
 
+.logo-img {
+  height: 56px;
+  width: auto;
+  display: block;
+}
+
 .main-nav {
   display: flex;
   align-items: center;
@@ -1484,6 +1490,15 @@ select {
 
 .footer-grid .footer-logo {
   display: inline-flex;
+  padding: 10px 16px;
+  background: #ffffff;
+  border-radius: 14px;
+}
+
+.footer-logo-img {
+  height: 60px;
+  width: auto;
+  display: block;
 }
 
 .footer-bottom {
