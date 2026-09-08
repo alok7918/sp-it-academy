@@ -7,9 +7,9 @@
   <meta name="theme-color" content="#0b1020">
   <title>Contact Us | SP IT Academy</title>
   <link rel="icon" href="../assets/images/logo/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../css/main.css?v=3">
-  <link rel="stylesheet" href="../css/animations.css?v=3">
-  <link rel="stylesheet" href="../css/responsive.css?v=3">
+  <link rel="stylesheet" href="../css/main.css?v=6">
+  <link rel="stylesheet" href="../css/animations.css?v=6">
+  <link rel="stylesheet" href="../css/responsive.css?v=6">
 </head>
 <body>
 
@@ -72,40 +72,65 @@
           </div>
         </div>
 
-        <form class="contact-form reveal" id="contact-form" novalidate>
+        <form class="contact-form reveal" id="contact-form" method="post" novalidate>
           <div class="section-heading">
             <span class="eyebrow">ENQUIRY</span>
-            <h2>Send a message.</h2>
+            <h2>Apply to join.</h2>
           </div>
 
-          <label for="cf-name">Full name</label>
-          <input type="text" id="cf-name" name="name" autocomplete="name" required>
+          <div class="form-alert" id="cf-alert" role="alert" aria-live="polite" hidden></div>
 
-          <label for="cf-email">Email</label>
-          <input type="email" id="cf-email" name="email" autocomplete="email" required>
+          <div class="form-field">
+            <label for="cf-name">First Name <span class="req">*</span></label>
+            <input type="text" id="cf-name" name="name" autocomplete="name" aria-required="true">
+            <span class="form-error" id="cf-name-err" hidden></span>
+          </div>
 
-          <label for="cf-phone">Phone</label>
-          <input type="tel" id="cf-phone" name="phone" autocomplete="tel">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="cf-email">Email Address <span class="req">*</span></label>
+              <input type="email" id="cf-email" name="email" autocomplete="email" aria-required="true">
+              <span class="form-error" id="cf-email-err" hidden></span>
+            </div>
+            <div class="form-field">
+              <label for="cf-phone">Phone Number <span class="req">*</span></label>
+              <input type="text" id="cf-phone" name="phone" autocomplete="tel" aria-required="true">
+              <span class="form-error" id="cf-phone-err" hidden></span>
+            </div>
+          </div>
 
-          <label for="cf-course">Program of interest</label>
-          <select id="cf-course" name="course">
-            <option value="">Select a program</option>
-            <option>MERN Stack Development</option>
-            <option>Java Full Stack</option>
-            <option>Python Full Stack</option>
-            <option>Data Analytics</option>
-            <option>Data Science</option>
-            <option>AI / Machine Learning</option>
-            <option>Cyber Security</option>
-            <option>Not sure yet</option>
-          </select>
+          <div class="form-field">
+            <label for="cf-course">Select Course</label>
+            <select id="cf-course" name="course">
+              <option value="">Select a program</option>
+              <option>MERN Stack Development</option>
+              <option>Java Full Stack</option>
+              <option>Python Full Stack</option>
+              <option>Data Analytics</option>
+              <option>Data Science</option>
+              <option>AI / Machine Learning</option>
+              <option>Cyber Security</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
 
-          <label for="cf-message">Message</label>
-          <textarea id="cf-message" name="message" rows="4"></textarea>
+          <div class="form-field">
+            <label for="cf-message">Message</label>
+            <span class="char-counter" id="cf-count" aria-hidden="true">0 / 180</span>
+            <textarea id="cf-message" name="message" rows="4" maxlength="180"></textarea>
+          </div>
 
-          <button type="submit" class="btn btn-primary">Send Enquiry <span class="btn-arrow">&rarr;</span></button>
+          <div class="form-field consent-field">
+            <label class="consent-check">
+              <input type="checkbox" id="cf-consent" name="consent" value="checked" aria-required="true">
+              <span>By submitting this application form, I consent to SP IT Academy contacting me regarding courses, admissions, updates, and related opportunities. <span class="req">*</span></span>
+            </label>
+            <span class="form-error" id="cf-consent-err" hidden></span>
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="cf-submit">Submit</button>
           <p class="form-note">We usually reply within one business day.</p>
-          <p class="form-status" id="cf-status" hidden>Thanks! Your enquiry has been noted &mdash; we'll be in touch soon.</p>
+          <p class="form-status" id="cf-status" hidden>Thank you for contacting us, we will be in touch with you shortly.</p>
         </form>
 
       </div>
@@ -140,6 +165,7 @@
           2nd Floor, Plot No 79-A, J K Road, Nizamuddin Colony, Bhopal, MP 462022<br>
           <a href="tel:+919886677700">+91 98866 77700</a> &middot; <a href="mailto:info@spacademy.ai">info@spacademy.ai</a>
         </p>
+        <div class="footer-social"><a class="s-ig" href="https://www.instagram.com/spacademy.ai" target="_blank" rel="noopener" aria-label="Instagram"><span>Instagram</span></a><a class="s-li" href="https://www.linkedin.com/in/swayam-prabha-it-academy-5814023b8" target="_blank" rel="noopener" aria-label="LinkedIn"><span>LinkedIn</span></a><a class="s-fb" href="https://www.facebook.com/profile.php?id=61564737301001" target="_blank" rel="noopener" aria-label="Facebook"><span>Facebook</span></a><a class="s-wa" href="https://wa.me/919886677700" target="_blank" rel="noopener" aria-label="WhatsApp"><span>WhatsApp</span></a></div>
       </div>
       <div>
         <h4>Programs</h4>
@@ -160,16 +186,122 @@
   <script src="../js/components/mobile-menu.js"></script>
   <script src="../js/components/scroll-animation.js"></script>
   <script>
-    /* Front-end only: no backend wired up yet. Show a confirmation
-       instead of navigating away so the page feels responsive. */
+    /* =========================================================
+       CONTACT FORM
+       Behaviour mirrors the Forminator form on spacademy.ai:
+       - inline + aggregated required-field validation
+       - live character counter on the message field (max 180)
+       - "Submitting form, please wait" state on submit
+       - success message replaces the form on completion
+       No backend is wired up, so a valid submit just resolves
+       locally after a short delay.
+       ========================================================= */
     (function () {
       var form = document.getElementById("contact-form");
       if (!form) return;
+
+      var MSG = {
+        name:    "This field is required. Please input your name.",
+        email:   "This field is required. Please input a valid email.",
+        emailBad:"Please enter a valid email address.",
+        phone:   "This field is required. Please input a phone number.",
+        consent: "This field is required. Please check it.",
+        sending: "Submitting form, please wait",
+        error:   "An error occurred while processing the form. Please try again"
+      };
+
+      var els = {
+        name:    document.getElementById("cf-name"),
+        email:   document.getElementById("cf-email"),
+        phone:   document.getElementById("cf-phone"),
+        consent: document.getElementById("cf-consent"),
+        message: document.getElementById("cf-message"),
+        count:   document.getElementById("cf-count"),
+        alert:   document.getElementById("cf-alert"),
+        status:  document.getElementById("cf-status"),
+        submit:  document.getElementById("cf-submit")
+      };
+
+      /* live character counter */
+      function updateCount() {
+        els.count.textContent = els.message.value.length + " / 180";
+      }
+      els.message.addEventListener("input", updateCount);
+      updateCount();
+
+      function setError(field, message) {
+        var box = document.getElementById("cf-" + field + "-err");
+        var input = els[field];
+        if (message) {
+          box.textContent = message;
+          box.hidden = false;
+          input.classList.add("is-invalid");
+          input.setAttribute("aria-invalid", "true");
+        } else {
+          box.textContent = "";
+          box.hidden = true;
+          input.classList.remove("is-invalid");
+          input.removeAttribute("aria-invalid");
+        }
+        return !message;
+      }
+
+      function validate() {
+        var errors = [];
+        var ok = true;
+
+        if (!els.name.value.trim()) { setError("name", MSG.name); errors.push(MSG.name); ok = false; }
+        else setError("name", "");
+
+        var email = els.email.value.trim();
+        if (!email) { setError("email", MSG.email); errors.push(MSG.email); ok = false; }
+        else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { setError("email", MSG.emailBad); errors.push(MSG.emailBad); ok = false; }
+        else setError("email", "");
+
+        if (!els.phone.value.trim()) { setError("phone", MSG.phone); errors.push(MSG.phone); ok = false; }
+        else setError("phone", "");
+
+        if (!els.consent.checked) { setError("consent", MSG.consent); errors.push(MSG.consent); ok = false; }
+        else setError("consent", "");
+
+        if (ok) {
+          els.alert.hidden = true;
+          els.alert.textContent = "";
+        } else {
+          els.alert.hidden = false;
+          els.alert.textContent = errors.join(" ");
+        }
+        return ok;
+      }
+
+      /* re-validate a field once the user has touched it */
+      ["name", "email", "phone"].forEach(function (k) {
+        els[k].addEventListener("blur", function () { if (els[k].getAttribute("aria-invalid")) validate(); });
+      });
+      els.consent.addEventListener("change", function () { if (!els.consent.checked) return; setError("consent", ""); });
+
       form.addEventListener("submit", function (e) {
         e.preventDefault();
-        var status = document.getElementById("cf-status");
-        if (status) status.hidden = false;
-        form.reset();
+        if (!validate()) {
+          els.alert.focus && els.alert.focus();
+          return;
+        }
+
+        els.submit.disabled = true;
+        els.submit.textContent = MSG.sending;
+
+        /* simulate the async round-trip Forminator makes to admin-ajax.php */
+        window.setTimeout(function () {
+          form.reset();
+          updateCount();
+          form.querySelectorAll(".form-field").forEach(function (f) { f.hidden = true; });
+          form.querySelector(".section-heading").hidden = true;
+          els.submit.hidden = true;
+          document.querySelector(".form-note").hidden = true;
+          els.alert.hidden = true;
+          els.status.hidden = false;
+          els.status.focus && els.status.focus();
+        }, 900);
       });
     })();
   </script>
