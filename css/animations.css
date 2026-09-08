@@ -463,7 +463,8 @@
     height 0.25s ease;
 }
 
-.course-card a {
+.course-card a,
+.course-card .course-cta {
   display: inline-block;
 
   transition:
@@ -471,7 +472,8 @@
     color 0.25s ease;
 }
 
-.course-card:hover a {
+.course-card:hover a,
+.course-card:hover .course-cta {
   transform: translateX(4px);
 
   color: #cbc6ff;
