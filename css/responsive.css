@@ -75,7 +75,7 @@
     min-height: auto;
 
     padding:
-      130px
+      110px
       0
       100px;
   }
@@ -221,13 +221,9 @@
     width: 94%;
   }
 
-  .brand img {
-    width: 150px;
-  }
-
   .hero {
     padding:
-      120px
+      95px
       0
       90px;
   }
