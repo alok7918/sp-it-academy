@@ -53,14 +53,38 @@
       repeat(2, 1fr);
   }
 
-  .journey {
-    grid-template-columns:
-      repeat(3, 1fr);
-  }
-
   .course-grid {
     grid-template-columns:
       repeat(2, 1fr);
+  }
+
+  .roadmap-wave {
+    height: 300px;
+  }
+
+  .roadmap-tile {
+    width: 58px;
+    height: 58px;
+    border-radius: 16px;
+  }
+
+  .roadmap-tile svg {
+    width: 23px;
+    height: 23px;
+  }
+
+  .roadmap-label {
+    top: 40px;
+    font-size: 13px;
+  }
+
+  .roadmap-card {
+    width: 216px;
+    top: 74px;
+  }
+
+  .roadmap-node.card-up .roadmap-card {
+    bottom: 74px;
   }
 }
 
@@ -70,6 +94,128 @@
    ========================================================= */
 
 @media (max-width: 850px) {
+
+  /* --- Career roadmap becomes a vertical timeline --- */
+
+  .roadmap {
+    margin-top: 40px;
+    padding-bottom: 0;
+  }
+
+  .roadmap-wave {
+    height: auto;
+  }
+
+  .roadmap-track {
+    display: none;
+  }
+
+  .roadmap-node {
+    position: relative;
+
+    left: auto;
+    top: auto;
+    width: auto;
+    height: auto;
+
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    column-gap: 16px;
+
+    padding-bottom: 26px;
+
+    opacity: 1;
+    transform: none;
+  }
+
+  .roadmap-node::before {
+    content: "";
+
+    position: absolute;
+    left: 27px;
+    top: 60px;
+    bottom: -2px;
+
+    width: 2px;
+    background: var(--line);
+  }
+
+  .roadmap-node:last-child::before {
+    display: none;
+  }
+
+  .roadmap-tile {
+    position: static;
+    transform: none;
+
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    align-self: start;
+
+    width: 54px;
+    height: 54px;
+    border-radius: 15px;
+  }
+
+  .roadmap-node:hover .roadmap-tile,
+  .roadmap-node.is-active .roadmap-tile {
+    transform: none;
+  }
+
+  .roadmap-tile svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .roadmap-label {
+    position: static;
+    transform: none;
+
+    grid-column: 2;
+    grid-row: 1;
+
+    display: block;
+    margin-bottom: 8px;
+
+    font-size: 15px;
+    line-height: 54px;
+  }
+
+  .roadmap-card,
+  .roadmap-node.card-left .roadmap-card,
+  .roadmap-node.card-right .roadmap-card,
+  .roadmap-node.card-up .roadmap-card {
+    position: static;
+    transform: none;
+
+    grid-column: 2;
+    grid-row: 2;
+
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+
+    width: auto;
+    padding: 0;
+
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .roadmap-card-head {
+    display: none;
+  }
+
+  .roadmap-card ul {
+    margin-top: 0;
+  }
 
   .hero {
     min-height: auto;
@@ -379,15 +525,6 @@
 
   .feature-grid {
     grid-template-columns: 1fr;
-  }
-
-  .journey {
-    grid-template-columns:
-      1fr 1fr;
-  }
-
-  .journey-step {
-    min-height: 125px;
   }
 
   .gallery-grid {
