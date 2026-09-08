@@ -1,26 +1,102 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Explore practical, career-focused IT programs."><title>Courses | SP IT Academy</title>
-<link rel="icon" href="../assets/images/logo/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../css/main.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/responsive.css"></head>
-<body><header class="site-header" style="position:relative;background:#0b1020"><nav class="navbar container"><a class="brand" href="../"><img src="../assets/images/logo/Logo.png" alt="SP IT Academy"></a><div class="nav-links" style="display:flex"><a href="../">Home</a><a href="../courses/">Courses</a><a href="../placements/">Placements</a><a href="../about/">About</a><a class="nav-cta" href="../contact/">Contact Us</a></div></nav></header>
-<main><section class="section section-light"><div class="container narrow"><span class="eyebrow">SP IT ACADEMY</span><h1 style="font-size:clamp(2.6rem,6vw,5rem);line-height:1.05;letter-spacing:-.05em;margin-bottom:20px">Courses</h1><p style="font-size:1.15rem;color:#64748b;max-width:700px">Explore practical, career-focused IT programs.</p><div style="margin-top:35px"><a class="btn btn-primary" href="../contact/">Talk to Us</a></div></div></section>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore SP IT Academy's practical, career-focused IT programs — development, data, AI/ML and cyber security.">
+  <meta name="theme-color" content="#0b1020">
+  <title>Courses | SP IT Academy</title>
+  <link rel="icon" href="../assets/images/logo/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/main.css?v=6">
+  <link rel="stylesheet" href="../css/animations.css?v=6">
+  <link rel="stylesheet" href="../css/responsive.css?v=6">
+</head>
+<body>
 
-<section class="section section-dark" id="programs">
-  <div class="container">
-    <div class="section-heading"><span class="eyebrow">OUR PROGRAMS</span><h2>Choose your career path.</h2><p>Focused programs built around practical skills and portfolio projects. Click any program to see the full curriculum.</p></div>
-    <div class="filter-bar" role="tablist">
-      <button class="filter active" data-filter="all">All</button>
-      <button class="filter" data-filter="data">Data</button>
-      <button class="filter" data-filter="development">Development</button>
-      <button class="filter" data-filter="ai">AI / ML</button>
-      <button class="filter" data-filter="cyber">Cyber Security</button>
+  <header class="site-header solid" id="site-header">
+    <nav class="navbar container" aria-label="Main navigation">
+      <a class="brand" href="../"><img src="../assets/images/logo/Logo.png" alt="SP IT Academy"></a>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <div class="nav-links">
+        <a href="../">Home</a>
+        <a href="../courses/">Courses</a>
+        <a href="../placements/">Placements</a>
+        <a href="../about/">About</a>
+        <a class="nav-cta" href="../contact/">Contact Us</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="page-head">
+      <div class="container">
+        <span class="eyebrow">SP IT ACADEMY</span>
+        <h1>Courses</h1>
+        <p>Explore practical, career-focused IT programs built around real projects and portfolios.</p>
+        <a class="btn btn-primary" href="../contact/">Talk to Us <span class="btn-arrow">&rarr;</span></a>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="programs">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">OUR PROGRAMS</span>
+          <h2>Choose your career path.</h2>
+          <p>Focused programs built around practical skills and portfolio projects. Click any program to see the full curriculum.</p>
+        </div>
+        <div class="filter-bar" role="tablist">
+          <button class="filter active" data-filter="all">All</button>
+          <button class="filter" data-filter="data">Data</button>
+          <button class="filter" data-filter="development">Development</button>
+          <button class="filter" data-filter="ai">AI / ML</button>
+          <button class="filter" data-filter="cyber">Cyber Security</button>
+        </div>
+        <div class="course-grid" id="course-grid"></div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container reveal">
+        <span class="eyebrow">NOT SURE WHERE TO START?</span>
+        <h2>Let's find the right fit.</h2>
+        <p>Tell us your background and goals &mdash; we'll point you to the right program.</p>
+        <a class="btn btn-light" href="../contact/">Talk to a Counselor</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <img src="../assets/images/logo/Logo.png" alt="SP IT Academy" class="footer-logo">
+        <p>Industry-focused IT training for students and aspiring professionals.</p>
+        <p class="footer-contact">
+          2nd Floor, Plot No 79-A, J K Road, Nizamuddin Colony, Bhopal, MP 462022<br>
+          <a href="tel:+919886677700">+91 98866 77700</a> &middot; <a href="mailto:info@spacademy.ai">info@spacademy.ai</a>
+        </p>
+        <div class="footer-social"><a class="s-ig" href="https://www.instagram.com/spacademy.ai" target="_blank" rel="noopener" aria-label="Instagram"><span>Instagram</span></a><a class="s-li" href="https://www.linkedin.com/in/swayam-prabha-it-academy-5814023b8" target="_blank" rel="noopener" aria-label="LinkedIn"><span>LinkedIn</span></a><a class="s-fb" href="https://www.facebook.com/profile.php?id=61564737301001" target="_blank" rel="noopener" aria-label="Facebook"><span>Facebook</span></a><a class="s-wa" href="https://wa.me/919886677700" target="_blank" rel="noopener" aria-label="WhatsApp"><span>WhatsApp</span></a></div>
+      </div>
+      <div>
+        <h4>Programs</h4>
+        <a href="../courses/">All Courses</a>
+        <a href="../courses/mern-stack/">MERN Stack</a>
+        <a href="../courses/data-analytics/">Data Analytics</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="../about/">About</a>
+        <a href="../placements/">Placements</a>
+        <a href="../contact/">Contact</a>
+      </div>
     </div>
-    <div class="course-grid" id="course-grid"></div>
-  </div>
-</section>
-</main>
-<footer class="footer"><div class="container footer-grid"><div><img src="../assets/images/logo/logo-white.svg" class="footer-logo" alt="SP IT Academy"><p>Industry-focused IT training.</p></div><div><h4>Programs</h4><a href="../courses/">All Courses</a></div><div><h4>Company</h4><a href="../about/">About</a><a href="../contact/">Contact</a></div></div></footer>
-<script src="../data/courses.js"></script>
-<script src="../js/components/course-filter.js"></script>
-</body></html>
+    <div class="container footer-bottom"><span>&copy; 2026 SP IT Academy. All rights reserved.</span></div>
+  </footer>
+
+  <script src="../data/courses.js"></script>
+  <script src="../js/components/course-filter.js"></script>
+  <script src="../js/components/mobile-menu.js"></script>
+  <script src="../js/components/scroll-animation.js"></script>
+</body>
+</html>

@@ -594,7 +594,8 @@
 /* --- Footer links --- */
 
 .footer-grid a {
-  display: inline-block;
+  display: block;
+  width: fit-content;
 
   transition:
     color 0.25s ease,
