@@ -163,6 +163,23 @@ select {
   font-weight: 700;
 }
 
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  margin: 5px 0;
+  border-radius: 2px;
+  background: var(--dark);
+}
+
 
 /* =========================================================
    03. HERO
@@ -1564,8 +1581,43 @@ select {
 
 @media (max-width: 1000px) {
 
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-wrapper {
+    position: relative;
+    flex-wrap: wrap;
+  }
+
   .main-nav {
     display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    z-index: 200;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 14px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: var(--shadow-md);
+  }
+
+  .main-nav.open {
+    display: flex;
+  }
+
+  .main-nav a {
+    padding: 10px 12px;
+    border-radius: 8px;
+  }
+
+  .main-nav a:hover {
+    background: rgba(91, 92, 240, 0.08);
   }
 
   .hero-grid {
