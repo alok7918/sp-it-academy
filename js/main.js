@@ -2,6 +2,24 @@ document.addEventListener("DOMContentLoaded",()=>{console.log("SP IT Academy fro
 
 
 /* =========================================================
+   STICKY HEADER — solidify the transparent home header
+   once the page is scrolled past the top.
+   ========================================================= */
+
+(function () {
+  var header = document.getElementById("site-header");
+  if (!header || header.classList.contains("solid")) return;
+
+  function onScroll() {
+    header.classList.toggle("scrolled", window.scrollY > 8);
+  }
+
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+})();
+
+
+/* =========================================================
    STUDENT SUCCESS CAROUSEL
    ========================================================= */
 
