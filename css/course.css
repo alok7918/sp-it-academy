@@ -75,6 +75,32 @@ select {
    02. HEADER
 ========================================================= */
 
+/* Scroll progress bar — kept in sync with css/main.css */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 300;
+
+  transform: scaleX(0);
+  transform-origin: left center;
+
+  background: linear-gradient(90deg, var(--primary), var(--purple));
+  box-shadow: 0 0 12px rgba(91, 92, 240, 0.45);
+  border-radius: 0 3px 3px 0;
+
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress {
+    transition: none;
+  }
+}
+
 /* Site-wide navigation bar — kept in sync with css/main.css + css/responsive.css */
 
 .site-header {
