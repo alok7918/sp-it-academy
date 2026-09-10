@@ -74,13 +74,24 @@ img {
    ========================================================= */
 
 .site-header {
-  position: absolute;
+  position: fixed;
 
   top: 0;
   left: 0;
   right: 0;
 padding-top: 30px;
-  z-index: 20;
+  z-index: 100;
+
+  transition: background 0.25s ease, padding 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Home page: transparent header solidifies once the page is scrolled */
+.site-header.scrolled {
+  padding-top: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 4px 20px rgba(2, 6, 23, 0.06);
 }
 
 .navbar {
@@ -2417,7 +2428,8 @@ padding-top: 30px;
    ========================================================= */
 
 .site-header.solid {
-  position: relative;
+  position: sticky;
+  top: 0;
   padding-top: 0;
   background: #ffffff;
   border-bottom: 1px solid var(--line);
