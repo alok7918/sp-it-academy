@@ -301,6 +301,10 @@
     grid-template-columns:
       1fr 1fr;
   }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
 }
 
 
