@@ -14,7 +14,7 @@
   <link rel="apple-touch-icon" href="../../assets/images/logo/favicon.png">
   <title>Cyber Security | SP IT Academy</title>
 
-  <link rel="stylesheet" href="../../css/course.css?v=10">
+  <link rel="stylesheet" href="../../css/course.css?v=11">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1138,34 +1138,46 @@
             </p>
 
             <div class="form-group">
-              <label>Full Name</label>
+              <label for="enq-name">Full Name</label>
               <input
+                id="enq-name"
                 type="text"
+                name="name"
+                autocomplete="name"
+                required
                 placeholder="Enter your name"
               >
             </div>
 
             <div class="form-group">
-              <label>Phone Number</label>
+              <label for="enq-phone">Phone Number</label>
               <input
+                id="enq-phone"
                 type="tel"
+                name="phone"
+                autocomplete="tel"
+                required
                 placeholder="+91 XXXXX XXXXX"
               >
             </div>
 
             <div class="form-group">
-              <label>Email Address</label>
+              <label for="enq-email">Email Address</label>
               <input
+                id="enq-email"
                 type="email"
+                name="email"
+                autocomplete="email"
+                required
                 placeholder="you@example.com"
               >
             </div>
 
             <div class="form-group">
-              <label>Your Background</label>
+              <label for="enq-background">Your Background</label>
 
-              <select>
-                <option>Select your background</option>
+              <select id="enq-background" name="background" required>
+                <option value="">Select your background</option>
                 <option>12th / School Student</option>
                 <option>College Student</option>
                 <option>Graduate</option>
@@ -1371,6 +1383,7 @@
 
 
   <script src="../../js/components/scroll-progress.js?v=1"></script>
+  <script src="../../js/components/enquiry-form.js?v=1"></script>
   <script src="../../js/components/mobile-menu.js?v=8"></script>
 
 </body>
