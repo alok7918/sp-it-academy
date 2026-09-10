@@ -666,6 +666,48 @@ select {
   background: #293146;
 }
 
+/* accent line that fills in as the section is scrolled through */
+.journey::after {
+  content: "";
+
+  position: absolute;
+
+  top: 20px;
+  left: 24px;
+  z-index: 1;
+
+  width: 3px;
+  height: calc(100% - 40px);
+  border-radius: 3px;
+
+  background: linear-gradient(180deg, var(--primary), var(--purple));
+
+  transform: scaleY(var(--journey-progress, 0));
+  transform-origin: top center;
+  transition: transform 0.12s linear;
+}
+
+.journey-number {
+  transition:
+    border-color 0.35s ease,
+    color 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.journey-item.reached .journey-number {
+  border-color: transparent;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--primary), var(--purple));
+  box-shadow: 0 0 0 4px rgba(91, 92, 240, 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journey::after {
+    transition: none;
+  }
+}
+
 .journey-item {
   position: relative;
 
@@ -1842,6 +1884,10 @@ select {
 
   .journey::before {
     left: 20px;
+  }
+
+  .journey::after {
+    left: 19px;
   }
 
   .certificate-card {
