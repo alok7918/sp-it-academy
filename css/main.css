@@ -2196,6 +2196,7 @@ padding-top: 30px;
 .company-logo {
   width: 48px;
   height: 48px;
+  flex: none;
 
   display: flex;
   align-items: center;
@@ -2208,6 +2209,19 @@ padding-top: 30px;
   font-size: 12px;
   font-weight: 900;
   letter-spacing: 1px;
+}
+
+.company-logo.has-logo {
+  font-size: 0;
+}
+
+.company-logo.has-logo::before {
+  content: "";
+  width: 26px;
+  height: 26px;
+  background-color: #ffffff;
+  -webkit-mask: var(--logo) center / contain no-repeat;
+          mask: var(--logo) center / contain no-repeat;
 }
 
 .company-box small {
@@ -2590,14 +2604,27 @@ padding-top: 30px;
 
 .logo-wall div {
   min-height: 92px;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 12px;
   border: 1px solid var(--line);
   border-radius: 16px;
   background: #ffffff;
   font-weight: 800;
   letter-spacing: 0.04em;
   color: #475569;
+}
+
+.logo-wall div[style*="--logo"]::before {
+  content: "";
+  width: 22px;
+  height: 22px;
+  flex: none;
+  background-color: #475569;
+  -webkit-mask: var(--logo) center / contain no-repeat;
+          mask: var(--logo) center / contain no-repeat;
 }
 
 @media (max-width: 850px) {

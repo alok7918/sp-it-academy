@@ -599,6 +599,22 @@ select {
   background: rgba(255,255,255,0.1);
 }
 
+/* real product logos, tinted to match the lettermark chips */
+.tech-icon.has-logo {
+  font-size: 0;
+}
+.tech-icon.has-logo::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  background-color: var(--primary);
+  -webkit-mask: var(--logo) center / contain no-repeat;
+          mask: var(--logo) center / contain no-repeat;
+}
+.tech-card.featured .tech-icon.has-logo::before {
+  background-color: #ffffff;
+}
+
 .tech-card h3 {
   font-size: 18px;
 }
