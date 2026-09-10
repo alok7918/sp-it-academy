@@ -94,6 +94,18 @@ padding-top: 30px;
   box-shadow: 0 4px 20px rgba(2, 6, 23, 0.06);
 }
 
+/* ...and the oversized hero logo shrinks to fit the compact bar */
+.site-header.scrolled .navbar {
+  height: 74px;
+}
+.site-header.scrolled .brand {
+  margin-left: 0;
+}
+.site-header.scrolled .brand img {
+  width: auto;
+  height: 50px;
+}
+
 .navbar {
   height: 82px;
 
@@ -107,6 +119,7 @@ padding-top: 30px;
 .brand img {
   width: 190px;
   display: block;
+  transition: height 0.25s ease, width 0.25s ease;
 }
 
 
