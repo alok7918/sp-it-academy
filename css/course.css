@@ -75,109 +75,70 @@ select {
    02. HEADER
 ========================================================= */
 
+/* Site-wide navigation bar — kept in sync with css/main.css + css/responsive.css */
+
 .site-header {
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.90);
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+  background: #ffffff;
+  border-bottom: 1px solid var(--line);
 }
 
-.nav-wrapper {
-  min-height: 76px;
+.navbar {
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 30px;
 }
 
-.logo {
+.brand {
   display: flex;
   align-items: center;
-  gap: 10px;
 }
 
-.logo-mark {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-
-  display: grid;
-  place-items: center;
-
-  color: white;
-  font-weight: 800;
-
-  background: linear-gradient(
-    135deg,
-    var(--primary),
-    var(--purple)
-  );
-}
-
-.logo strong,
-.logo small {
-  display: block;
-}
-
-.logo strong {
-  font-size: 15px;
-}
-
-.logo small {
-  font-size: 8px;
-  letter-spacing: 2px;
-  color: var(--muted);
-}
-
-.logo-img {
-  height: 56px;
+.brand img {
+  height: 58px;
   width: auto;
   display: block;
 }
 
-.main-nav {
+.nav-links {
   display: flex;
   align-items: center;
   gap: 30px;
+  color: #111827;
+  font-size: 0.95rem;
 }
 
-.main-nav a {
-  color: #475467;
-  font-size: 14px;
-  font-weight: 600;
-  transition: 0.2s;
+.nav-links a {
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
 }
 
-.main-nav a:hover {
-  color: var(--primary);
+.nav-links a:hover {
+  opacity: 1;
 }
 
-.nav-btn {
+.nav-cta {
   padding: 11px 18px;
-  border-radius: 10px;
-  color: white;
-  background: var(--dark);
-  font-size: 13px;
-  font-weight: 700;
+  border: 1px solid #d9deeb;
+  border-radius: 999px;
+  color: #111827;
 }
 
 .menu-toggle {
   display: none;
   background: none;
   border: 0;
-  padding: 8px;
   cursor: pointer;
 }
 
 .menu-toggle span {
   display: block;
-  width: 24px;
+  width: 25px;
   height: 2px;
-  margin: 5px 0;
-  border-radius: 2px;
-  background: var(--dark);
+  margin: 5px;
+  background: #111827;
 }
 
 
@@ -1579,46 +1540,43 @@ select {
    17. RESPONSIVE
 ========================================================= */
 
-@media (max-width: 1000px) {
+/* Mobile navigation — matches css/responsive.css */
+@media (max-width: 700px) {
 
   .menu-toggle {
     display: block;
   }
 
-  .nav-wrapper {
-    position: relative;
-    flex-wrap: wrap;
-  }
-
-  .main-nav {
-    display: none;
+  .nav-links {
     position: absolute;
-    top: calc(100% + 8px);
-    left: 0;
-    right: 0;
-    z-index: 200;
+    top: 76px;
+    left: 4%;
+    width: 92%;
+    padding: 20px;
+    display: none;
     flex-direction: column;
     align-items: stretch;
-    gap: 4px;
-    padding: 14px;
-    background: var(--white);
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    box-shadow: var(--shadow-md);
+    gap: 14px;
+    background: #ffffff;
+    color: #111827;
+    border-radius: 18px;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
   }
 
-  .main-nav.open {
+  .nav-links.open {
     display: flex;
   }
 
-  .main-nav a {
-    padding: 10px 12px;
-    border-radius: 8px;
+  .nav-links a {
+    padding: 8px 5px;
   }
 
-  .main-nav a:hover {
-    background: rgba(91, 92, 240, 0.08);
+  .nav-cta {
+    text-align: center;
   }
+}
+
+@media (max-width: 1000px) {
 
   .hero-grid {
     grid-template-columns: 1fr;
@@ -1662,10 +1620,6 @@ select {
 
   .container {
     width: min(100% - 28px, var(--container));
-  }
-
-  .nav-btn {
-    display: none;
   }
 
   .hero-section {
