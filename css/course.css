@@ -1598,9 +1598,6 @@ select {
 
 .footer-grid .footer-logo {
   display: inline-flex;
-  padding: 10px 16px;
-  background: #ffffff;
-  border-radius: 14px;
 }
 
 .footer-social {
@@ -1648,7 +1645,7 @@ select {
 .footer-social .s-wa { background-image: url("../assets/icons/whatsapp.svg"); }
 
 .footer-logo-img {
-  height: 60px;
+  height: 76px;
   width: auto;
   display: block;
 }

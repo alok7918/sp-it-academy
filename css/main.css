@@ -1888,16 +1888,10 @@ padding-top: 30px;
   display: block;
   box-sizing: border-box;
   width: auto;
-  height: 66px;
+  height: 84px;
   object-fit: contain;
 
   margin-bottom: 18px;
-
-  /* the brand mark is full-colour on a white ground, so give it a
-     light chip to sit on against the dark footer */
-  padding: 10px 18px;
-  background: #ffffff;
-  border-radius: 14px;
 }
 
 .footer-brand p {
