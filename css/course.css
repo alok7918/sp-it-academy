@@ -120,13 +120,26 @@ select {
 
 .brand {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2px;
+  line-height: 1;
 }
 
 .brand img {
-  height: 58px;
+  height: 42px;
   width: auto;
   display: block;
+}
+
+.brand-name {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #64748b;
+  white-space: nowrap;
 }
 
 .nav-links {
@@ -1598,6 +1611,19 @@ select {
 
 .footer-grid .footer-logo {
   display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.footer-org-name {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #8a93a8;
 }
 
 .footer-social {

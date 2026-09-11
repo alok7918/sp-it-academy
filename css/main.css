@@ -124,16 +124,12 @@ padding-top: 30px;
   box-shadow: 0 4px 20px rgba(2, 6, 23, 0.06);
 }
 
-/* ...and the oversized hero logo shrinks to fit the compact bar */
+/* ...and the logo mark shrinks a touch further to fit the compact bar */
 .site-header.scrolled .navbar {
   height: 74px;
 }
-.site-header.scrolled .brand {
-  margin-left: 0;
-}
 .site-header.scrolled .brand img {
-  width: auto;
-  height: 50px;
+  height: 34px;
 }
 
 .navbar {
@@ -144,12 +140,26 @@ padding-top: 30px;
   justify-content: space-between;
 }
 .brand {
-  margin-left: -10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2px;
+  line-height: 1;
 }
 .brand img {
-  width: 190px;
+  height: 42px;
+  width: auto;
   display: block;
-  transition: height 0.25s ease, width 0.25s ease;
+  transition: height 0.25s ease;
+}
+.brand-name {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
 }
 
 
@@ -1891,7 +1901,17 @@ padding-top: 30px;
   height: 84px;
   object-fit: contain;
 
-  margin-bottom: 18px;
+  margin-bottom: 8px;
+}
+
+.footer-org-name {
+  display: block;
+  margin: 0 0 16px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #8a93a8;
 }
 
 .footer-brand p {
@@ -2510,14 +2530,8 @@ padding-top: 30px;
   height: 80px;
 }
 
-.site-header.solid .brand {
-  margin-left: 0;
-}
-
 .site-header.solid .brand img {
-  width: auto;
-  height: 58px;
-  display: block;
+  height: 42px;
 }
 
 
