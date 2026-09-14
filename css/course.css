@@ -1057,8 +1057,20 @@ select {
 }
 
 .career-list span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 22px;
+  height: 22px;
+
   color: var(--primary);
   font-weight: 800;
+}
+
+.career-list span svg {
+  width: 20px;
+  height: 20px;
 }
 
 .career-list strong {
@@ -1066,6 +1078,8 @@ select {
 }
 
 .career-list p {
+  grid-column: 2;
+
   color: var(--muted);
   font-size: 12px;
 }

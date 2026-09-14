@@ -1428,12 +1428,44 @@ padding-top: 30px;
   padding: 28px;
 }
 
-.feature-card span {
-  font-size: 0.8rem;
+.feature-icon {
+  display: grid;
 
-  color: var(--primary);
+  place-items: center;
 
-  font-weight: 800;
+  width: 44px;
+  height: 44px;
+
+  border-radius: 12px;
+}
+
+.feature-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.feature-icon.purple {
+  color: #7148e8;
+
+  background: #eee8ff;
+}
+
+.feature-icon.blue {
+  color: #008de3;
+
+  background: #dff5ff;
+}
+
+.feature-icon.green {
+  color: #11a96d;
+
+  background: #dff9ed;
+}
+
+.feature-icon.violet {
+  color: #7148e8;
+
+  background: #eee8ff;
 }
 
 .feature-card h3 {
