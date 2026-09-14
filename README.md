@@ -1,4 +1,4 @@
-# SP IT Academy Website
+# Swyam Prabha IT Academy Website
 
 Production-oriented static website starter using HTML, CSS and vanilla JavaScript.
 
