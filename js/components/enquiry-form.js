@@ -1,6 +1,6 @@
 /* Course-page "Get Course Details" form.
-   There is no backend, so a valid submit is acknowledged locally
-   with a success panel instead of reloading the page. */
+   Submits via FormSubmit.co's AJAX endpoint to
+   placements@spacademy.ai and swaps in a success panel. */
 
 (function () {
   function init() {
@@ -87,7 +87,15 @@
         submit.textContent = "Sending…";
       }
 
-      window.setTimeout(function () {
+      fetch("https://formsubmit.co/ajax/placements@spacademy.ai", {
+        method: "POST",
+        headers: { "Accept": "application/json" },
+        body: new FormData(form)
+      }).then(function (res) {
+        if (!res.ok) throw new Error("bad response");
+        return res.json();
+      }).then(function (data) {
+        if (data.success !== true && data.success !== "true") throw new Error("not delivered");
         var panel = document.createElement("div");
         panel.className = "form-success";
         panel.setAttribute("role", "status");
@@ -95,7 +103,19 @@
           "<strong>Thank you!</strong>" +
           "<span>We’ve received your details — our team will call you shortly.</span>";
         form.replaceChildren(panel);
-      }, 800);
+      }).catch(function () {
+        if (submit) {
+          submit.disabled = false;
+          submit.textContent = "Get Course Details →";
+        }
+        var box = document.createElement("p");
+        box.className = "form-error form-error-general";
+        box.setAttribute("role", "alert");
+        box.textContent = "Something went wrong. Please try again or call us directly.";
+        var existing = form.querySelector(".form-error-general");
+        if (existing) existing.remove();
+        form.insertBefore(box, form.firstChild);
+      });
     });
   }
 

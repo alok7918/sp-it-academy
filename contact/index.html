@@ -30,7 +30,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/logo/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="../assets/images/logo/favicon.png">
   <link rel="apple-touch-icon" href="../assets/images/logo/favicon.png">
-  <link rel="stylesheet" href="../css/main.css?v=11">
+  <link rel="stylesheet" href="../css/main.css?v=12">
   <link rel="stylesheet" href="../css/animations.css?v=9">
   <link rel="stylesheet" href="../css/responsive.css?v=9">
 </head>
@@ -99,7 +99,11 @@
           </div>
         </div>
 
-        <form class="contact-form reveal" id="contact-form" method="post" novalidate>
+        <form class="contact-form reveal" id="contact-form" action="https://formsubmit.co/placements@spacademy.ai" method="post" novalidate>
+          <input type="hidden" name="_subject" value="New enquiry from spacademy.ai contact form">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
           <div class="section-heading">
             <span class="eyebrow">ENQUIRY</span>
             <h2>Apply to join.</h2>
@@ -235,8 +239,8 @@
        - live character counter on the message field (max 180)
        - "Submitting form, please wait" state on submit
        - success message replaces the form on completion
-       No backend is wired up, so a valid submit just resolves
-       locally after a short delay.
+       Submissions are delivered via FormSubmit.co's AJAX endpoint
+       to placements@spacademy.ai (no server of our own).
        ========================================================= */
     (function () {
       var form = document.getElementById("contact-form");
@@ -332,8 +336,15 @@
         els.submit.disabled = true;
         els.submit.textContent = MSG.sending;
 
-        /* simulate the async round-trip Forminator makes to admin-ajax.php */
-        window.setTimeout(function () {
+        fetch("https://formsubmit.co/ajax/placements@spacademy.ai", {
+          method: "POST",
+          headers: { "Accept": "application/json" },
+          body: new FormData(form)
+        }).then(function (res) {
+          if (!res.ok) throw new Error("bad response");
+          return res.json();
+        }).then(function (data) {
+          if (data.success !== true && data.success !== "true") throw new Error("not delivered");
           form.reset();
           updateCount();
           form.querySelectorAll(".form-field").forEach(function (f) { f.hidden = true; });
@@ -343,7 +354,13 @@
           els.alert.hidden = true;
           els.status.hidden = false;
           els.status.focus && els.status.focus();
-        }, 900);
+        }).catch(function () {
+          els.alert.hidden = false;
+          els.alert.textContent = MSG.error;
+          els.alert.focus && els.alert.focus();
+          els.submit.disabled = false;
+          els.submit.textContent = "Submit";
+        });
       });
     })();
   </script>
