@@ -5,5 +5,6 @@ const courseData=[
 {id:"java",title:"Java Full Stack",category:"development",duration:"6 Months",description:"Java backend, modern frontend, APIs, databases and development workflows.",url:"courses/java-full-stack/"},
 {id:"python",title:"Python Full Stack",category:"development",duration:"6 Months",description:"Python, web development, APIs, databases and production-oriented projects.",url:"courses/python-full-stack/"},
 {id:"aiml",title:"AI / Machine Learning",category:"ai",duration:"6 Months",description:"Machine learning foundations, model building and applied AI projects.",url:"courses/ai-ml/"},
-{id:"cyber",title:"Cyber Security",category:"cyber",duration:"6 Months",description:"Security fundamentals, networking, ethical security practices and labs.",url:"courses/cyber-security/"}
+{id:"cyber",title:"Cyber Security",category:"cyber",duration:"6 Months",description:"Security fundamentals, networking, ethical security practices and labs.",url:"courses/cyber-security/"},
+{id:"sdet",title:"SDET (Software Testing)",category:"development",duration:"6 Months",description:"Manual testing, Java, Selenium, TestNG, API testing and CI/CD through practical projects.",url:"courses/sdet/"}
 ];
