@@ -1,6 +1,6 @@
 /* Course-page "Get Course Details" form.
-   Submits via FormSubmit.co's AJAX endpoint to
-   placements@spacademy.ai and swaps in a success panel. */
+   Submits via the same verified FormSubmit.co AJAX endpoint
+   used by the contact page and swaps in a success panel. */
 
 (function () {
   function init() {
@@ -87,7 +87,7 @@
         submit.textContent = "Sending…";
       }
 
-      fetch("https://formsubmit.co/ajax/placements@spacademy.ai", {
+      fetch("https://formsubmit.co/ajax/af26ba6712e7d1bda9b2165add0922ab", {
         method: "POST",
         headers: { "Accept": "application/json" },
         body: new FormData(form)
