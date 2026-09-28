@@ -39,14 +39,6 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXPF649T"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-  <!-- =========================================================
-       PAGE PRELOADER (logo pop-in → zoom → reveal)
-       ========================================================= -->
-  <div id="preloader" class="preloader" role="status" aria-label="Loading Swyam Prabha IT Academy">
-    <div class="preloader-logo">
-      <img src="assets/images/logo/Logo.png" alt="Swyam Prabha IT Academy" width="220" height="150">
-    </div>
-  </div>
 
   <header class="site-header" id="site-header">
     <nav class="navbar container" aria-label="Main navigation">
@@ -881,38 +873,6 @@
     </div>
   </footer>
 
-  <script>
-    /* =========================================================
-       PRELOADER SEQUENCE
-       pop-in (CSS) → hold → zoom-in → fade out → reveal site
-       ========================================================= */
-    (function () {
-      var pre = document.getElementById("preloader");
-      if (!pre) return;
-
-      document.documentElement.classList.add("is-loading");
-
-      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      var HOLD = reduce ? 250 : 1150; // time logo stays before zoom
-      var start = Date.now();
-
-      function finish() {
-        var wait = Math.max(0, HOLD - (Date.now() - start));
-        setTimeout(function () {
-          pre.classList.add("zoom-out");
-          document.documentElement.classList.remove("is-loading");
-          setTimeout(function () {
-            pre.parentNode && pre.parentNode.removeChild(pre);
-          }, reduce ? 200 : 750);
-        }, wait);
-      }
-
-      if (document.readyState === "complete") finish();
-      else window.addEventListener("load", finish);
-      // hard fallback in case load never fires
-      setTimeout(finish, 6000);
-    })();
-  </script>
 
   <script src="data/courses.js?v=2"></script>
   <script src="js/components/hero-carousel.js"></script>
