@@ -901,120 +901,247 @@ select {
 
 /* =========================================================
    10. PROJECTS
+   Flow layout only: no fixed heights, no absolute-positioned
+   content, so text can never overlap or overflow a card.
 ========================================================= */
 
 .projects-section {
   background: #f5f6fa;
 }
 
-.projects-grid {
+.projects-section .section-heading {
+  max-width: 760px;
+}
+
+/* Headline always breaks after the first sentence */
+.projects-section .section-heading h2 span {
+  display: block;
+}
+
+.projects-section .section-heading p {
+  max-width: 560px;
+  margin-inline: auto;
+}
+
+.pbl {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
+  gap: 20px;
 }
 
-.project-card {
-  min-height: 310px;
-  padding: 30px;
+/* ---------- Project briefs (3 equal cards) ---------- */
 
-  position: relative;
-  overflow: hidden;
+.pbl-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
 
-  border-radius: 22px;
-
-  color: white;
-
-  background: var(--dark);
+  list-style: none;
 }
 
-.project-card::after {
+.pbl-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  min-width: 0;
+  padding: 28px;
+
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+
+  background: var(--white);
+}
+
+.pbl-kind {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  color: var(--primary-dark);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.pbl-kind::before {
   content: "";
 
-  position: absolute;
-
-  width: 220px;
-  height: 220px;
-
-  right: -100px;
-  bottom: -100px;
+  width: 8px;
+  height: 8px;
+  flex: none;
 
   border-radius: 50%;
 
-  background: rgba(91,92,240,0.22);
+  background: var(--primary);
 }
 
-.project-large {
-  grid-row: span 2;
-  min-height: 638px;
+.pbl-list {
+  counter-reset: pbl;
 }
 
-.project-wide {
-  grid-column: span 2;
-  min-height: 280px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #111629,
-      #1a2040
-    );
+.pbl-card {
+  counter-increment: pbl;
 }
 
-.project-number {
-  color: #7179ff;
+.pbl-card .pbl-kind::before {
+  content: counter(pbl);
+
+  display: grid;
+  place-items: center;
+
+  width: 26px;
+  height: 26px;
+
+  color: var(--white);
+  background: var(--primary);
+
   font-size: 13px;
-  font-weight: 800;
+  font-weight: 700;
+  line-height: 1;
 }
 
-.project-content {
-  position: absolute;
-  z-index: 2;
+.pbl-card h3 {
+  color: var(--text);
+  font-size: 22px;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
 
-  left: 30px;
-  right: 30px;
-  bottom: 30px;
+  overflow-wrap: anywhere;
 }
 
-.project-content > span {
-  color: #a5aaff;
-
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 1.4px;
+.pbl-desc {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.65;
 }
 
-.project-content h3 {
-  margin-top: 10px;
-
-  font-size: 28px;
-}
-
-.project-content p {
-  max-width: 600px;
-
-  margin-top: 10px;
-
-  color: #a8b0c1;
-  font-size: 13px;
-}
-
-.project-tags {
+/* Tags sit at the bottom so rows line up across cards */
+.pbl-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 7px;
+  gap: 8px;
 
-  margin-top: 18px;
+  margin-top: auto;
+  padding-top: 12px;
+
+  list-style: none;
 }
 
-.project-tags span {
-  padding: 6px 10px;
+.pbl-tags li {
+  padding: 5px 11px;
 
-  border: 1px solid #343c51;
-  border-radius: 7px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
 
-  color: #cbd1dc;
+  color: #475467;
+  background: #f9fafb;
 
-  font-size: 10px;
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ---------- Capstone (the one bold element) ---------- */
+
+.pbl-capstone {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 40px 64px;
+  align-items: center;
+
+  padding: 44px 48px;
+
+  border-radius: var(--radius-lg);
+
+  color: var(--white);
+  background:
+    radial-gradient(
+      ellipse 60% 90% at 100% 0%,
+      rgba(91, 92, 240, 0.35),
+      transparent 70%
+    ),
+    var(--dark-2);
+}
+
+.pbl-capstone .pbl-kind {
+  color: #b4b7ff;
+}
+
+.pbl-capstone .pbl-kind::before {
+  background: #8f91ff;
+}
+
+.pbl-capstone h3 {
+  margin-top: 14px;
+
+  font-size: clamp(26px, 3.2vw, 38px);
+  letter-spacing: -1px;
+  line-height: 1.12;
+
+  overflow-wrap: anywhere;
+}
+
+.pbl-capstone .pbl-desc {
+  max-width: 52ch;
+  margin-top: 16px;
+
+  color: #aab2c5;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.pbl-stack h4 {
+  margin-bottom: 14px;
+
+  color: #8f98ad;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.pbl-capstone .pbl-tags {
+  margin-top: 0;
+  padding-top: 0;
+  gap: 10px;
+}
+
+.pbl-capstone .pbl-tags li {
+  padding: 8px 14px;
+
+  border-color: rgba(255, 255, 255, 0.16);
+
+  color: #e3e6f0;
+  background: rgba(255, 255, 255, 0.06);
+
+  font-size: 14px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 960px) {
+
+  .pbl-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pbl-capstone {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 36px 32px;
+  }
+
+}
+
+@media (max-width: 560px) {
+
+  .pbl-card {
+    padding: 22px;
+  }
+
+  .pbl-capstone {
+    padding: 28px 22px;
+    border-radius: var(--radius-md);
+  }
+
 }
 
 
@@ -1838,18 +1965,8 @@ select {
   }
 
   .tech-grid,
-  .curriculum-grid,
-  .projects-grid {
+  .curriculum-grid {
     grid-template-columns: 1fr;
-  }
-
-  .project-large {
-    grid-row: auto;
-    min-height: 400px;
-  }
-
-  .project-wide {
-    grid-column: auto;
   }
 
   .module-card ul {
