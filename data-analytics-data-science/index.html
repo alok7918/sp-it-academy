@@ -17,25 +17,25 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="data.css?v=2">
+  <link rel="stylesheet" href="data.css?v=3">
 </head>
 <body>
   <div class="progress" id="progress"></div>
 
   <header class="site-header" id="site-header">
-    <nav class="nav shell">
+    <nav class="navbar shell" aria-label="Main navigation">
       <a class="brand" href="../" aria-label="Swyam Prabha IT Academy home">
         <img src="../assets/images/logo/logo-mark.png" alt="Swyam Prabha IT Academy">
-        <span>Swyam Prabha IT Academy</span>
+        <span class="brand-name">Swyam Prabha IT Academy</span>
       </a>
+      <button class="menu-toggle" id="menu" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
       <div class="nav-links">
         <a href="#program">Program</a>
         <a href="#curriculum">Curriculum</a>
         <a href="#projects">Projects</a>
         <a href="#faq">FAQ</a>
-        <a class="nav-cta" href="#enquiry">Get Details <span>↗</span></a>
+        <a class="nav-cta" href="#enquiry">Get Details</a>
       </div>
-      <button class="menu" id="menu" aria-label="Open navigation" aria-expanded="false"><i></i><i></i><i></i></button>
     </nav>
   </header>
 
@@ -181,6 +181,7 @@
           <label>Phone Number<input type="tel" name="phone" required placeholder="+91 XXXXX XXXXX"></label>
           <label>Email Address<input type="email" name="email" required placeholder="you@example.com"></label>
           <label>Current Background<select name="background" required><option value="">Select one</option><option>12th / School Student</option><option>College Student</option><option>Graduate</option><option>Working Professional</option><option>Career Switcher</option></select></label>
+          <label class="consent-field"><span class="consent-check"><input type="checkbox" name="consent" value="checked" required><span>I consent to Swyam Prabha IT Academy contacting me regarding courses, admissions, updates, and related opportunities. <b>*</b></span></span></label>
           <button class="btn btn-primary" type="submit">Get Course Details <b>→</b></button>
         </form>
       </div>
