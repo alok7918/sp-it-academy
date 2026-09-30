@@ -434,6 +434,12 @@ select {
   font-weight: 700;
 }
 
+.floating-tech img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
 .floating-tech strong {
   font-size: 14px;
 }
