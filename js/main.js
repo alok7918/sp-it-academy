@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded",()=>{console.log("Swyam Prabha IT Academy frontend initialized");});
+document.addEventListener("DOMContentLoaded",()=>{console.log("Swyam Prabha IT Academy Pvt. Ltd. frontend initialized");});
 
 
 /* =========================================================
