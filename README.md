@@ -1,4 +1,4 @@
-# Swyam Prabha IT Academy Website
+# Swyam Prabha IT Academy Pvt. Ltd. Website
 
 Production-oriented static website starter using HTML, CSS and vanilla JavaScript.
 
