@@ -12,7 +12,7 @@
  */
 
 const CONFIG = {
-  TEMPLATE_ID: 'https://docs.google.com/presentation/d/1ukupaaPljAJnENMXs4it7UCW8iehHpCl/edit',
+  TEMPLATE_ID: '1PAi6zsuLX_BCqtbtVbgWYeKW0zolbaeHWIEHZnSxhQ8',
   WEBHOOK_KEY: 'thisistobecertifiedthat',
   ACADEMY_NAME: 'Swyam Prabha IT Academy Pvt. Ltd.',
   ACADEMY_EMAIL: 'trainer@spacademy.ai',
