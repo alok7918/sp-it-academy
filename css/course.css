@@ -1414,6 +1414,24 @@ select {
   font-size: 9px;
 }
 
+.certificate-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.certificate-brand img {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+}
+
+.certificate-brand span {
+  font-weight: 700;
+  font-size: 18px;
+}
+
 
 /* =========================================================
    13. ADMISSION
