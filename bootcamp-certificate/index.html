@@ -62,8 +62,8 @@
         <h1>Submit your <span>bootcamp project.</span></h1>
         <p>
           Completed your Data Analytics or Data Science bootcamp project?
-          Fill in your details and upload your assignment. Our team will review
-          your submission and contact you regarding your certificate.
+          Fill in your details and upload your assignment. Your certificate will be generated automatically using the name and bootcamp
+          details you submit and emailed directly to your email address.
         </p>
       </div>
     </section>
@@ -99,13 +99,16 @@
 
           <input type="hidden" name="_subject" value="New Bootcamp Project Submission - spacademy.ai">
           <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_captcha" value="true">
           <input type="hidden" name="_url" value="https://spacademy.ai/bootcamp-certificate/">
+          <!-- Replace the value below with your deployed Google Apps Script /exec URL. -->
+          <input type="hidden" name="_webhook" value="https://script.google.com/macros/s/AKfycbzSaMx8kwt6Yy3C3fmn8YvJIRgfYjIKWoYTLKnlbPQIPL9ZMYGBeQ37ZUMFoetviz-w/exec">
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
           <div class="section-heading">
             <span class="eyebrow">PROJECT SUBMISSION</span>
             <h2>Submit your assignment.</h2>
+            <p class="form-note">After submission, your certificate is generated with the name entered above and sent to the same email address.</p>
           </div>
 
           <div class="form-alert" id="bs-alert" role="alert" aria-live="polite" hidden></div>
@@ -175,8 +178,8 @@
           </div>
 
           <button type="submit" class="btn btn-primary" id="bs-submit">Submit Project</button>
-          <p class="form-note">Your submission will be emailed to the academy team for review.</p>
-          <p class="form-status" id="bs-status" hidden>Thank you. Your project submission has been received successfully.</p>
+          <p class="form-note">Your assignment will be emailed to the academy team, and your personalized certificate will be generated and emailed automatically.</p>
+          <p class="form-status" id="bs-status" hidden>Thank you. Your project submission has been received successfully. Your personalized certificate will be emailed to you shortly.</p>
         </form>
 
       </div>
