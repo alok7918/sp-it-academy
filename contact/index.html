@@ -241,17 +241,21 @@
   <script>
     /* =========================================================
        CONTACT FORM
-       Behaviour mirrors the Forminator form on spacademy.ai:
        - inline + aggregated required-field validation
        - live character counter on the message field (max 180)
        - "Submitting form, please wait" state on submit
        - success message replaces the form on completion
-       Submissions are delivered via FormSubmit.co's AJAX endpoint
-       to placements@spacademy.ai (no server of our own).
+       Each submission is sent to:
+         1) FormSubmit.co (email notification)
+         2) Google Apps Script web app (appends a row to Google Sheet)
        ========================================================= */
     (function () {
       var form = document.getElementById("contact-form");
       if (!form) return;
+
+      /* ---- PASTE YOUR APPS SCRIPT WEB APP URL (ends in /exec) HERE ---- */
+      var SHEET_URL = "https://script.google.com/macros/s/AKfycbzoAYDAB91qvY4S6DmSd6fWLHniv4fSt8YQz3jdBD-zQKc1WmaM04ESFojnlpVO2jE/exec";
+      var FORMSUBMIT_URL = "https://formsubmit.co/ajax/af26ba6712e7d1bda9b2165add0922ab";
 
       var MSG = {
         name:    "This field is required. Please input your name.",
@@ -333,6 +337,30 @@
       });
       els.consent.addEventListener("change", function () { if (!els.consent.checked) return; setError("consent", ""); });
 
+      /* send a copy to the Google Sheet via Apps Script (best-effort) */
+      function sendToSheet(formData) {
+        if (!SHEET_URL || SHEET_URL.indexOf("PASTE_YOUR") === 0) return Promise.resolve();
+        return fetch(SHEET_URL, {
+          method: "POST",
+          mode: "no-cors", /* response is opaque; request still reaches Apps Script */
+          body: new URLSearchParams(formData)
+        }).catch(function () { /* never block the email path if the sheet fails */ });
+      }
+
+      /* send email notification via FormSubmit (must succeed) */
+      function sendToEmail(formData) {
+        return fetch(FORMSUBMIT_URL, {
+          method: "POST",
+          headers: { "Accept": "application/json" },
+          body: formData
+        }).then(function (res) {
+          if (!res.ok) throw new Error("bad response");
+          return res.json();
+        }).then(function (data) {
+          if (data.success !== true && data.success !== "true") throw new Error("not delivered");
+        });
+      }
+
       form.addEventListener("submit", function (e) {
         e.preventDefault();
         if (!validate()) {
@@ -343,15 +371,13 @@
         els.submit.disabled = true;
         els.submit.textContent = MSG.sending;
 
-        fetch("https://formsubmit.co/ajax/af26ba6712e7d1bda9b2165add0922ab", {
-          method: "POST",
-          headers: { "Accept": "application/json" },
-          body: new FormData(form)
-        }).then(function (res) {
-          if (!res.ok) throw new Error("bad response");
-          return res.json();
-        }).then(function (data) {
-          if (data.success !== true && data.success !== "true") throw new Error("not delivered");
+        var formData = new FormData(form);
+
+        /* honeypot: silently skip the sheet for bots */
+        var sheetPromise = formData.get("_honey") ? Promise.resolve() : sendToSheet(formData);
+        var mailPromise  = sendToEmail(formData);
+
+        Promise.all([mailPromise, sheetPromise]).then(function () {
           form.reset();
           updateCount();
           form.querySelectorAll(".form-field").forEach(function (f) { f.hidden = true; });
