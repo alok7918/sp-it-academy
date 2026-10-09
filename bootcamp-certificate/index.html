@@ -62,8 +62,7 @@
         <h1>Submit your <span>bootcamp project.</span></h1>
         <p>
           Completed your Data Analytics or Data Science bootcamp project?
-          Fill in your details and upload your assignment. Your certificate will be generated automatically using the name and bootcamp
-          details you submit and emailed directly to your email address.
+          Fill in your details below to submit it to the academy team.
         </p>
       </div>
     </section>
@@ -79,9 +78,8 @@
 
           <ul class="contact-info">
             <li><span>01</span><strong>Complete the assigned bootcamp project.</strong></li>
-            <li><span>02</span><strong>Upload your project as a single ZIP, PDF, DOC/DOCX, XLS/XLSX, CSV or PY file.</strong></li>
-            <li><span>03</span><strong>Make sure your name and project details are included in the submission.</strong></li>
-            <li><span>04</span><strong>Successful project submission is required for the Participation &amp; Project Completion Certificate.</strong></li>
+            <li><span>02</span><strong>Make sure your name and project details are entered correctly.</strong></li>
+            <li><span>03</span><strong>Successful project submission is required for the Participation &amp; Project Completion Certificate.</strong></li>
           </ul>
 
           <div class="contact-socials">
@@ -95,39 +93,35 @@
               id="bootcamp-form"
               action="https://formsubmit.co/af26ba6712e7d1bda9b2165add0922ab"
               method="POST"
-              enctype="multipart/form-data">
+              novalidate>
 
           <input type="hidden" name="_subject" value="New Bootcamp Project Submission - spacademy.ai">
           <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_captcha" value="true">
-          <input type="hidden" name="_url" value="https://spacademy.ai/bootcamp-certificate/">
-          <!-- Replace the value below with your deployed Google Apps Script /exec URL. -->
-          <input type="hidden" name="_webhook" value="https://script.google.com/macros/s/AKfycbzSaMx8kwt6Yy3C3fmn8YvJIRgfYjIKWoYTLKnlbPQIPL9ZMYGBeQ37ZUMFoetviz-w/exec?key=thisistobecertifiedthat">
+          <input type="hidden" name="_captcha" value="false">
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
           <div class="section-heading">
             <span class="eyebrow">PROJECT SUBMISSION</span>
-            <h2>Submit your assignment.</h2>
-            <p class="form-note">After submission, your certificate is generated with the name entered above and sent to the same email address.</p>
+            <h2>Submit your project.</h2>
           </div>
 
           <div class="form-alert" id="bs-alert" role="alert" aria-live="polite" hidden></div>
 
           <div class="form-field">
             <label for="bs-name">Full Name <span class="req">*</span></label>
-            <input type="text" id="bs-name" name="name" autocomplete="name" required>
+            <input type="text" id="bs-name" name="name" autocomplete="name">
             <span class="form-error" id="bs-name-err" hidden></span>
           </div>
 
           <div class="form-row">
             <div class="form-field">
               <label for="bs-email">Email Address <span class="req">*</span></label>
-              <input type="email" id="bs-email" name="email" autocomplete="email" required>
+              <input type="email" id="bs-email" name="email" autocomplete="email">
               <span class="form-error" id="bs-email-err" hidden></span>
             </div>
             <div class="form-field">
               <label for="bs-phone">Phone Number <span class="req">*</span></label>
-              <input type="tel" id="bs-phone" name="phone" autocomplete="tel" required>
+              <input type="tel" id="bs-phone" name="phone" autocomplete="tel">
               <span class="form-error" id="bs-phone-err" hidden></span>
             </div>
           </div>
@@ -135,7 +129,7 @@
           <div class="form-row">
             <div class="form-field">
               <label for="bs-bootcamp">Bootcamp <span class="req">*</span></label>
-              <select id="bs-bootcamp" name="bootcamp" required>
+              <select id="bs-bootcamp" name="bootcamp">
                 <option value="">Select bootcamp</option>
                 <option>Data Analytics Bootcamp</option>
                 <option>Data Science Bootcamp</option>
@@ -150,17 +144,9 @@
 
           <div class="form-field">
             <label for="bs-project">Project Title <span class="req">*</span></label>
-            <input type="text" id="bs-project" name="project_title" placeholder="e.g. Sales Analysis Dashboard" required>
+            <input type="text" id="bs-project" name="project_title" placeholder="e.g. Sales Analysis Dashboard">
             <span class="form-error" id="bs-project-err" hidden></span>
           </div>
-
-          <!-- <div class="form-field">
-            <label for="bs-file">Upload Assignment <span class="req">*</span></label>
-            <input type="file" id="bs-file" name="assignment"
-                   accept=".zip,.pdf,.doc,.docx,.xls,.xlsx,.csv,.py" required>
-            <span class="form-error" id="bs-file-err" hidden></span>
-            <small class="form-note">Maximum 10 MB. For multiple files, put everything into one ZIP file.</small>
-          </div> -->
 
           <div class="form-field">
             <label for="bs-message">Additional Notes</label>
@@ -171,15 +157,15 @@
 
           <div class="form-field consent-field">
             <label class="consent-check">
-              <input type="checkbox" id="bs-consent" name="consent" value="checked" required>
-              <span>I confirm that the uploaded assignment is my own project submission and that the information provided above is correct. <span class="req">*</span></span>
+              <input type="checkbox" id="bs-consent" name="consent" value="checked">
+              <span>I confirm that this project submission is my own work and that the information provided above is correct. <span class="req">*</span></span>
             </label>
             <span class="form-error" id="bs-consent-err" hidden></span>
           </div>
 
           <button type="submit" class="btn btn-primary" id="bs-submit">Submit Project</button>
-          <p class="form-note">Your assignment will be emailed to the academy team, and your personalized certificate will be generated and emailed automatically.</p>
-          <p class="form-status" id="bs-status" hidden>Thank you. Your project submission has been received successfully. Your personalized certificate will be emailed to you shortly.</p>
+          <p class="form-note" id="bs-note">Your submission will be sent to the academy team.</p>
+          <p class="form-status" id="bs-status" hidden>Thank you. Your project submission has been received successfully.</p>
         </form>
 
       </div>
@@ -258,23 +244,29 @@
   <script>
     /* =========================================================
        BOOTCAMP PROJECT SUBMISSION
-       Native multipart/form-data submission to FormSubmit.
+       Each submission goes to:
+         1) FormSubmit.co  -> email to the academy team
+         2) Google Apps Script -> new row in the Google Sheet
        ========================================================= */
     (function () {
       var form = document.getElementById("bootcamp-form");
       if (!form) return;
+
+      /* ---- PASTE YOUR APPS SCRIPT WEB APP URL (ends in /exec) HERE ---- */
+      var SHEET_URL = "https://script.google.com/macros/s/AKfycbygQ0ew0RWa6eXUIylH_eX7M5xsLGgKbd3KdhBxqwHgM4toFA5bO5MlGwSWFOm-1QpNAg/exec";
+      var FORMSUBMIT_URL = "https://formsubmit.co/ajax/af26ba6712e7d1bda9b2165add0922ab";
 
       var name = document.getElementById("bs-name");
       var email = document.getElementById("bs-email");
       var phone = document.getElementById("bs-phone");
       var bootcamp = document.getElementById("bs-bootcamp");
       var project = document.getElementById("bs-project");
-      var file = document.getElementById("bs-file");
       var consent = document.getElementById("bs-consent");
       var message = document.getElementById("bs-message");
       var count = document.getElementById("bs-count");
       var alertBox = document.getElementById("bs-alert");
       var submit = document.getElementById("bs-submit");
+      var status = document.getElementById("bs-status");
 
       function showError(id, msg) {
         var box = document.getElementById(id + "-err");
@@ -286,14 +278,13 @@
       function updateCount() {
         count.textContent = message.value.length + " / 500";
       }
-
       message.addEventListener("input", updateCount);
       updateCount();
 
-      form.addEventListener("submit", function (e) {
+      function validate() {
         var errors = [];
 
-        ["bs-name","bs-email","bs-phone","bs-bootcamp","bs-project","bs-file","bs-consent"]
+        ["bs-name", "bs-email", "bs-phone", "bs-bootcamp", "bs-project", "bs-consent"]
           .forEach(function (id) { showError(id, ""); });
 
         if (!name.value.trim()) {
@@ -324,29 +315,69 @@
           showError("bs-project", "Project title is required.");
         }
 
-        if (!file.files.length) {
-          errors.push("Please upload your assignment.");
-          showError("bs-file", "Assignment file is required.");
-        } else if (file.files[0].size > 10 * 1024 * 1024) {
-          errors.push("Your assignment file must be 10 MB or smaller.");
-          showError("bs-file", "Maximum file size is 10 MB.");
-        }
-
         if (!consent.checked) {
           errors.push("Please confirm the submission declaration.");
           showError("bs-consent", "Please check the confirmation box.");
         }
 
         if (errors.length) {
-          e.preventDefault();
           alertBox.textContent = errors.join(" ");
           alertBox.hidden = false;
           alertBox.scrollIntoView({ behavior: "smooth", block: "center" });
-          return;
+          return false;
         }
+        alertBox.hidden = true;
+        return true;
+      }
+
+      /* copy to Google Sheet (best-effort, never blocks the email) */
+      function sendToSheet(data) {
+        if (!SHEET_URL || SHEET_URL.indexOf("PASTE_YOUR") === 0) return Promise.resolve();
+        return fetch(SHEET_URL, {
+          method: "POST",
+          mode: "no-cors",
+          body: new URLSearchParams(data)
+        }).catch(function () {});
+      }
+
+      /* email via FormSubmit (must succeed) */
+      function sendToEmail(data) {
+        return fetch(FORMSUBMIT_URL, {
+          method: "POST",
+          headers: { "Accept": "application/json" },
+          body: data
+        }).then(function (res) {
+          if (!res.ok) throw new Error("bad response");
+          return res.json();
+        }).then(function (d) {
+          if (d.success !== true && d.success !== "true") throw new Error("not delivered");
+        });
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (!validate()) return;
 
         submit.disabled = true;
         submit.textContent = "Submitting Project...";
+
+        var data = new FormData(form);
+        var sheetPromise = data.get("_honey") ? Promise.resolve() : sendToSheet(data);
+        var mailPromise = sendToEmail(data);
+
+        Promise.all([mailPromise, sheetPromise]).then(function () {
+          form.reset();
+          updateCount();
+          form.querySelectorAll(".form-field, .section-heading, .form-note").forEach(function (el) { el.hidden = true; });
+          submit.hidden = true;
+          alertBox.hidden = true;
+          status.hidden = false;
+        }).catch(function () {
+          alertBox.textContent = "An error occurred while submitting. Please try again.";
+          alertBox.hidden = false;
+          submit.disabled = false;
+          submit.textContent = "Submit Project";
+        });
       });
     })();
   </script>
