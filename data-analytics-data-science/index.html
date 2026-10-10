@@ -171,7 +171,7 @@
     <section class="section enquiry" id="enquiry">
       <div class="shell enquiry-card">
         <div class="enquiry-copy"><span class="label">GET DETAILS</span><h2>Let's talk about your <em>data career.</em></h2><p>Share your details. We'll help you understand the curriculum, current batch, fees and learning path.</p><div class="contact-line"><span>WhatsApp</span><a href="https://wa.me/919179133358" target="_blank" rel="noopener">+91 91791 33358 ↗</a></div></div>
-        <form action="https://formsubmit.co/af26ba6712e7d1bda9b2165add0922ab" method="post">
+        <form id="enquiry-form" action="https://formsubmit.co/af26ba6712e7d1bda9b2165add0922ab" method="post">
           <input type="hidden" name="_subject" value="New enquiry: Data Analytics + Data Science landing page">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="course" value="Data Analytics + Data Science">
@@ -196,6 +196,46 @@
 
   <footer class="footer"><div class="shell footer-inner"><div><img src="../assets/images/logo/logo-mark.png" alt=""><strong>Swyam Prabha IT Academy Pvt. Ltd.</strong><p>Industry-focused IT training for students and aspiring professionals.</p></div><div><a href="../courses/data-analytics/">Data Analytics</a><a href="../courses/data-science/">Data Science</a><a href="../courses/">All Courses</a></div><div><a href="../about/">About</a><a href="../placements/">Placements</a><a href="../contact/">Contact</a></div></div><div class="shell copyright">© 2026 Swyam Prabha IT Academy Pvt. Ltd.. All rights reserved.</div></footer>
 
+  <script>
+    /* Save each enquiry to Google Sheet, then continue the normal FormSubmit
+       submission (email + redirect to the thank-you page). */
+    (function () {
+      var form = document.getElementById("enquiry-form");
+      if (!form) return;
+
+      /* ---- PASTE YOUR APPS SCRIPT WEB APP URL (ends in /exec) HERE ---- */
+      var SHEET_URL = "https://script.google.com/macros/s/AKfycbxMtoCQQte7Od3WGs_WWVDxWSxzMY0CFnKUsG5vzrpWhsSXyXLWYe60SJHf4FUBAVtvLg/exec";
+
+      var sending = false;
+
+      form.addEventListener("submit", function (e) {
+        if (sending) return;
+        if (!SHEET_URL || SHEET_URL.indexOf("PASTE_YOUR") === 0) return; /* normal submit */
+
+        e.preventDefault();
+        sending = true;
+
+        var btn = form.querySelector('button[type="submit"]');
+        if (btn) btn.disabled = true;
+
+        var data = new URLSearchParams(new FormData(form));
+
+        var save = fetch(SHEET_URL, {
+          method: "POST",
+          mode: "no-cors",
+          keepalive: true,
+          body: data
+        }).catch(function () {});
+
+        var timeout = new Promise(function (resolve) { setTimeout(resolve, 3000); });
+
+        /* never block the email submission for more than 3 seconds */
+        Promise.race([save, timeout]).then(function () {
+          form.submit();
+        });
+      });
+    })();
+  </script>
   <script src="data.js?v=2"></script>
 </body>
 </html>
