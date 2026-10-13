@@ -155,8 +155,10 @@ select {
   transition: opacity 0.2s ease;
 }
 
-.nav-links a:hover {
-  opacity: 1;
+@media (hover: hover) and (pointer: fine) {
+  .nav-links a:hover {
+    opacity: 1;
+  }
 }
 
 .nav-cta {
@@ -293,9 +295,11 @@ select {
     0 12px 30px rgba(91, 92, 240, 0.25);
 }
 
-.btn-primary:hover {
-  background: var(--primary-dark);
-  transform: translateY(-2px);
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+  }
 }
 
 .btn-secondary {
@@ -303,9 +307,11 @@ select {
   border: 1px solid var(--line);
 }
 
-.btn-secondary:hover {
-  border-color: var(--primary);
-  color: var(--primary);
+@media (hover: hover) and (pointer: fine) {
+  .btn-secondary:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+  }
 }
 
 .hero-trust {
@@ -585,10 +591,12 @@ select {
   transition: 0.25s;
 }
 
-.tech-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(91,92,240,0.4);
-  box-shadow: var(--shadow-sm);
+@media (hover: hover) and (pointer: fine) {
+  .tech-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(91,92,240,0.4);
+    box-shadow: var(--shadow-sm);
+  }
 }
 
 .tech-card.featured {
@@ -828,9 +836,11 @@ select {
   transition: 0.25s;
 }
 
-.module-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-sm);
+@media (hover: hover) and (pointer: fine) {
+  .module-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-sm);
+  }
 }
 
 .module-card.highlight {
@@ -1770,8 +1780,10 @@ select {
   font-size: 12px;
 }
 
-.footer-grid a:hover {
-  color: white;
+@media (hover: hover) and (pointer: fine) {
+  .footer-grid a:hover {
+    color: white;
+  }
 }
 
 .footer-grid .footer-logo {
@@ -1813,10 +1825,12 @@ select {
   transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
 }
 
-.site-footer .footer-social a:hover {
-  border-color: #4a5468;
-  background-color: rgba(255, 255, 255, 0.06);
-  transform: translateY(-2px);
+@media (hover: hover) and (pointer: fine) {
+  .site-footer .footer-social a:hover {
+    border-color: #4a5468;
+    background-color: rgba(255, 255, 255, 0.06);
+    transform: translateY(-2px);
+  }
 }
 
 .footer-social a span {
@@ -2077,4 +2091,12 @@ select {
     grid-template-columns: 1fr;
   }
 
+}
+
+/* Touch devices: press feedback instead of sticky hover */
+@media (hover: none) {
+  .tech-card:active,
+  .module-card:active { transform: scale(0.985); }
+  .btn-primary:active,
+  .btn-secondary:active { transform: scale(0.97); }
 }
