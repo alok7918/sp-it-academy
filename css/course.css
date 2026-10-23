@@ -2100,3 +2100,15 @@ select {
   .btn-primary:active,
   .btn-secondary:active { transform: scale(0.97); }
 }
+
+/* ---------- Mobile: hide curriculum + projects sections ---------- */
+
+@media (max-width: 750px) {
+
+  .curriculum-section,
+  .projects-section,
+  footer a[href="#projects"] {
+    display: none;
+  }
+
+}
