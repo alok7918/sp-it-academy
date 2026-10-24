@@ -1,3 +1,7 @@
+/* Demoted headings (SEO outline): keep native heading look */
+.as-h1,.as-h2,.as-h3,.as-h4{display:block;font-weight:700}
+.as-h1{font-size:2em}.as-h2{font-size:1.5em}.as-h3{font-size:1.17em}.as-h4{font-size:1em}
+
 /* =========================================================
    TABLET / SMALL DESKTOP
    ========================================================= */
@@ -12,7 +16,8 @@
     grid-template-columns: 46% 54%;
   }
 
-  .hero h1 {
+  .hero h1,
+.hero .as-h1 {
     font-size:
       clamp(52px, 6vw, 72px);
   }
@@ -244,7 +249,8 @@
     margin-inline: auto;
   }
 
-  .hero h1 {
+  .hero h1,
+.hero .as-h1 {
     font-size:
       clamp(48px, 9vw, 68px);
   }
@@ -397,7 +403,8 @@
     flex-basis: 10px;
   }
 
-  .hero h1 {
+  .hero h1,
+.hero .as-h1 {
     font-size:
       clamp(43px, 13vw, 58px);
 
@@ -514,7 +521,8 @@
     margin-bottom: 30px;
   }
 
-  .section-heading h2 {
+  .section-heading h2,
+.section-heading .as-h2 {
     font-size:
       clamp(2rem, 9vw, 2.8rem);
   }
@@ -541,5 +549,39 @@
 
   .footer-bottom {
     margin-top: 30px;
+  }
+}
+
+/* Homepage hero: the SEO H1 sits in the eyebrow pill and must keep the pill's look */
+.hero h1.hero-seo-title {
+  margin: 0 0 22px;
+  font-size: 13px;
+  line-height: 1.4;
+  letter-spacing: 0.17em;
+  font-weight: 800;
+  color: #11182e;
+  text-transform: uppercase;
+}
+
+.hero h1.hero-seo-title span::after {
+  content: none;
+}
+
+.hero h1.hero-seo-title .eyebrow-dot {
+  display: block;
+  background: var(--green);
+  color: inherit;
+}
+
+@media (max-width: 850px) {
+  .hero h1.hero-seo-title {
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero h1.hero-seo-title {
+    font-size: 10px;
+    letter-spacing: 0.13em;
   }
 }

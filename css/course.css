@@ -1,3 +1,7 @@
+/* Demoted headings (SEO outline): keep native heading look */
+.as-h1,.as-h2,.as-h3,.as-h4{display:block;font-weight:700}
+.as-h1{font-size:2em}.as-h2{font-size:1.5em}.as-h3{font-size:1.17em}.as-h4{font-size:1em}
+
 /* =========================================================
    01. ROOT & GLOBAL
 ========================================================= */
@@ -49,7 +53,11 @@ body {
 h1,
 h2,
 h3,
-h4 {
+h4,
+.as-h1,
+.as-h2,
+.as-h3,
+.as-h4 {
   font-family: "Space Grotesk", sans-serif;
   line-height: 1.1;
 }
@@ -234,7 +242,8 @@ select {
   letter-spacing: 1.8px;
 }
 
-.hero-content h1 {
+.hero-content h1,
+.hero-content .as-h1 {
   max-width: 700px;
   margin: 18px 0 25px;
 
@@ -242,7 +251,8 @@ select {
   letter-spacing: -3px;
 }
 
-.hero-content h1 span {
+.hero-content h1 span,
+.hero-content .as-h1 span {
   display: block;
 
   background: linear-gradient(
@@ -548,7 +558,11 @@ select {
 .section-heading h2,
 .career-content h2,
 .admission-header h2,
-.final-cta h2 {
+.final-cta h2,
+.section-heading .as-h2,
+.career-content .as-h2,
+.admission-header .as-h2,
+.final-cta .as-h2 {
   margin-top: 14px;
 
   font-size: clamp(38px, 5vw, 58px);
@@ -558,7 +572,11 @@ select {
 .section-heading h2 span,
 .career-content h2 span,
 .admission-header h2 span,
-.final-cta h2 span {
+.final-cta h2 span,
+.section-heading .as-h2 span,
+.career-content .as-h2 span,
+.admission-header .as-h2 span,
+.final-cta .as-h2 span {
   color: var(--primary);
 }
 
@@ -642,7 +660,8 @@ select {
   background-color: #ffffff;
 }
 
-.tech-card h3 {
+.tech-card h3,
+.tech-card .as-h3 {
   font-size: 18px;
 }
 
@@ -778,7 +797,8 @@ select {
   letter-spacing: 1.5px;
 }
 
-.journey-content h3 {
+.journey-content h3,
+.journey-content .as-h3 {
   margin-top: 9px;
   font-size: 25px;
 }
@@ -873,7 +893,8 @@ select {
   font-size: 28px;
 }
 
-.module-card h3 {
+.module-card h3,
+.module-card .as-h3 {
   margin-top: 12px;
   font-size: 23px;
 }
@@ -930,7 +951,8 @@ select {
 }
 
 /* Headline always breaks after the first sentence */
-.projects-section .section-heading h2 span {
+.projects-section .section-heading h2 span,
+.projects-section .section-heading .as-h2 span {
   display: block;
 }
 
@@ -1015,7 +1037,8 @@ select {
   line-height: 1;
 }
 
-.pbl-card h3 {
+.pbl-card h3,
+.pbl-card .as-h3 {
   color: var(--text);
   font-size: 22px;
   letter-spacing: -0.5px;
@@ -1086,7 +1109,8 @@ select {
   background: #8f91ff;
 }
 
-.pbl-capstone h3 {
+.pbl-capstone h3,
+.pbl-capstone .as-h3 {
   margin-top: 14px;
 
   font-size: clamp(26px, 3.2vw, 38px);
@@ -1105,7 +1129,8 @@ select {
   line-height: 1.7;
 }
 
-.pbl-stack h4 {
+.pbl-stack h4,
+.pbl-stack .as-h4 {
   margin-bottom: 14px;
 
   color: #8f98ad;
@@ -1395,7 +1420,8 @@ select {
   font-size: 11px;
 }
 
-.certificate-card h3 {
+.certificate-card h3,
+.certificate-card .as-h3 {
   margin-top: 5px;
 
   font-size: 28px;
@@ -1503,7 +1529,8 @@ select {
   font-size: 12px;
 }
 
-.admission-step h3 {
+.admission-step h3,
+.admission-step .as-h3 {
   font-size: 17px;
 }
 
@@ -1526,7 +1553,8 @@ select {
   box-shadow: var(--shadow-md);
 }
 
-.admission-form h3 {
+.admission-form h3,
+.admission-form .as-h3 {
   font-size: 25px;
 }
 
@@ -1709,7 +1737,8 @@ select {
   color: #a8adff;
 }
 
-.final-cta h2 {
+.final-cta h2,
+.final-cta .as-h2 {
   max-width: 850px;
   margin-inline: auto;
 }
@@ -1764,7 +1793,8 @@ select {
   font-size: 12px;
 }
 
-.footer-grid h4 {
+.footer-grid h4,
+.footer-grid .as-h4 {
   margin-bottom: 15px;
 
   font-size: 13px;
@@ -1959,7 +1989,8 @@ select {
     padding: 65px 0;
   }
 
-  .hero-content h1 {
+  .hero-content h1,
+.hero-content .as-h1 {
     font-size: 44px;
     letter-spacing: -2px;
   }
@@ -2014,7 +2045,11 @@ select {
   .section-heading h2,
   .career-content h2,
   .admission-header h2,
-  .final-cta h2 {
+  .final-cta h2,
+.section-heading .as-h2,
+.career-content .as-h2,
+.admission-header .as-h2,
+.final-cta .as-h2 {
     font-size: 38px;
   }
 
@@ -2027,7 +2062,8 @@ select {
 
 @media (max-width: 480px) {
 
-  .hero-content h1 {
+  .hero-content h1,
+.hero-content .as-h1 {
     font-size: 38px;
   }
 
@@ -2111,4 +2147,48 @@ select {
     display: none;
   }
 
+}
+
+
+/* =========================================================
+   SEO CONTENT POINTS (H3 blocks from the keyword plan)
+========================================================= */
+
+.seo-points {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.seo-point {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: #ffffff;
+  text-align: left;
+}
+
+.seo-point h3 {
+  font-size: 19px;
+  line-height: 1.25;
+  color: var(--text);
+}
+
+.seo-point p {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.career-content .seo-points {
+  margin: 26px 0 8px;
+  grid-template-columns: 1fr;
+}
+
+@media (max-width: 560px) {
+  .seo-points {
+    grid-template-columns: 1fr;
+  }
 }

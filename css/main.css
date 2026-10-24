@@ -1,3 +1,7 @@
+/* Demoted headings (SEO outline): keep native heading look */
+.as-h1,.as-h2,.as-h3,.as-h4{display:block;font-weight:700}
+.as-h1{font-size:2em}.as-h2{font-size:1.5em}.as-h3{font-size:1.17em}.as-h4{font-size:1em}
+
 /* =========================================================
    GLOBAL VARIABLES
    ========================================================= */
@@ -376,7 +380,8 @@ padding-top: 30px;
    HERO HEADING
    ========================================================= */
 
-.hero h1 {
+.hero h1,
+.hero .as-h1 {
   margin: 0 0 22px;
 
   font-size: clamp(58px, 5.25vw, 84px);
@@ -390,7 +395,8 @@ padding-top: 30px;
   color: var(--dark);
 }
 
-.hero h1 span {
+.hero h1 span,
+.hero .as-h1 span {
   display: inline-block;
 
   position: relative;
@@ -414,7 +420,8 @@ padding-top: 30px;
    YELLOW HAND-DRAWN UNDERLINE
    ========================================================= */
 
-.hero h1 span::after {
+.hero h1 span::after,
+.hero .as-h1 span::after {
   content: "";
 
   position: absolute;
@@ -964,7 +971,8 @@ padding-top: 30px;
   margin-bottom: 42px;
 }
 
-.section-heading h2 {
+.section-heading h2,
+.section-heading .as-h2 {
   font-size:
     clamp(2.2rem, 4vw, 3.6rem);
 
@@ -1136,7 +1144,8 @@ padding-top: 30px;
 }
 
 
-.success-content h3 {
+.success-content h3,
+.success-content .as-h3 {
   margin-bottom: 8px;
 
   font-size: clamp(2rem, 4vw, 3.5rem);
@@ -1383,7 +1392,8 @@ padding-top: 30px;
   text-transform: uppercase;
 }
 
-.course-card h3 {
+.course-card h3,
+.course-card .as-h3 {
   font-size: 1.35rem;
 
   margin: 8px 0;
@@ -1491,7 +1501,8 @@ padding-top: 30px;
   background: #eee8ff;
 }
 
-.feature-card h3 {
+.feature-card h3,
+.feature-card .as-h3 {
   margin: 28px 0 8px;
 }
 
@@ -1938,7 +1949,8 @@ padding-top: 30px;
   color: #d8d9ff;
 }
 
-.final-cta h2 {
+.final-cta h2,
+.final-cta .as-h2 {
   font-size:
     clamp(2.3rem, 5vw, 4.4rem);
 
@@ -2072,7 +2084,8 @@ padding-top: 30px;
 .footer-social .s-fb { background-image: url("../assets/icons/facebook.svg"); }
 .footer-social .s-wa { background-image: url("../assets/icons/whatsapp.svg"); }
 
-.footer h4 {
+.footer h4,
+.footer .as-h4 {
   color: #ffffff;
 
   font-size: 0.78rem;
@@ -2147,7 +2160,8 @@ padding-top: 30px;
   color: #5b5cf0;
 }
 
-.placement-heading h2 {
+.placement-heading h2,
+.placement-heading .as-h2 {
   margin: 0;
   font-size: clamp(36px, 5vw, 58px);
   line-height: 1.05;
@@ -2155,7 +2169,8 @@ padding-top: 30px;
   color: #101426;
 }
 
-.placement-heading h2 span {
+.placement-heading h2 span,
+.placement-heading .as-h2 span {
   color: #5b5cf0;
 }
 
@@ -2259,7 +2274,8 @@ padding-top: 30px;
   font-weight: 800;
 }
 
-.student-profile h3 {
+.student-profile h3,
+.student-profile .as-h3 {
   margin: 0;
   font-size: 17px;
   color: #15192b;
@@ -2476,7 +2492,8 @@ padding-top: 30px;
   letter-spacing: 1.5px;
 }
 
-.placement-cta h3 {
+.placement-cta h3,
+.placement-cta .as-h3 {
   position: relative;
   z-index: 1;
 
@@ -2568,7 +2585,8 @@ padding-top: 30px;
     margin-bottom: 35px;
   }
 
-  .placement-heading h2 {
+  .placement-heading h2,
+.placement-heading .as-h2 {
     font-size: 37px;
     letter-spacing: -1.5px;
   }
@@ -2588,7 +2606,8 @@ padding-top: 30px;
     border-radius: 13px;
   }
 
-  .student-profile h3 {
+  .student-profile h3,
+.student-profile .as-h3 {
     font-size: 15px;
   }
 
@@ -2600,7 +2619,8 @@ padding-top: 30px;
     padding: 25px 22px;
   }
 
-  .placement-cta h3 {
+  .placement-cta h3,
+.placement-cta .as-h3 {
     font-size: 20px;
   }
 }
@@ -2640,7 +2660,8 @@ padding-top: 30px;
     #f8fafc;
 }
 
-.page-head h1 {
+.page-head h1,
+.page-head .as-h1 {
   font-size: clamp(2.6rem, 6vw, 4.4rem);
   line-height: 1.04;
   letter-spacing: -0.04em;
@@ -3011,4 +3032,67 @@ padding-top: 30px;
 @media (hover: none) {
   .placement-card:active { transform: scale(0.985); }
   .placement-btn:active { transform: scale(0.97); }
+}
+
+
+/* =========================================================
+   SEO STRUCTURE ADDITIONS
+   ========================================================= */
+
+/* Homepage: course groups */
+.course-group + .course-group {
+  margin-top: 44px;
+}
+
+.course-group-title {
+  margin-bottom: 18px;
+  font-size: clamp(1.25rem, 2vw, 1.55rem);
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+/* Courses page: comparison table */
+.compare-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #ffffff;
+}
+
+.compare-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.compare-table th,
+.compare-table td {
+  padding: 16px 18px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+
+.compare-table thead th {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: #f8fafc;
+}
+
+.compare-table tbody th {
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.compare-table td {
+  color: var(--muted);
+}
+
+.compare-table tbody tr:last-child th,
+.compare-table tbody tr:last-child td {
+  border-bottom: 0;
 }
