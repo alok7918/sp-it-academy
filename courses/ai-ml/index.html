@@ -32,15 +32,133 @@
   <meta name="twitter:description" content="Explore AI and Machine Learning training at SP Academy, Bhopal. Learn ML fundamentals, model building and applied AI through practical projects.">
   <meta name="twitter:image" content="https://spacademy.ai/assets/images/og/social-share.jpg">
 
-  <link rel="stylesheet" href="../../css/course.css?v=15">
+  <link rel="stylesheet" href="../../css/course.css?v=16">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Great+Vibes&display=swap"
     rel="stylesheet"
   >
+
+  <style>
+    /* Certificate preview */
+    .certificate-card {
+      position: relative;
+      width: min(100%, 760px);
+      min-height: 520px;
+      aspect-ratio: 1.45 / 1;
+      box-sizing: border-box;
+      padding: 34px 58px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .certificate-card::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px solid currentColor;
+      border-radius: 2px;
+      pointer-events: none;
+      opacity: .22;
+    }
+
+    .certificate-brand {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      text-align: center;
+      margin-bottom: 13px;
+    }
+
+    .certificate-brand img {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+    }
+
+    .certificate-brand span {
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: .02em;
+    }
+
+    .certificate-title {
+      font-size: 11px;
+      line-height: 1.35;
+      letter-spacing: .12em;
+      font-weight: 700;
+      margin: 2px 0 15px;
+    }
+
+    .certificate-intro,
+    .certificate-copy {
+      font-size: 11px;
+      line-height: 1.5;
+      margin: 5px 0;
+    }
+
+    .certificate-student {
+      font-family: "Great Vibes", "Brush Script MT", cursive;
+      font-size: 32px;
+      line-height: 1.15;
+      font-weight: 400;
+      margin: 7px 0 8px;
+    }
+
+    .certificate-course {
+      display: block;
+      font-size: 15px;
+      margin: 4px 0 5px;
+      letter-spacing: .03em;
+    }
+
+    .certificate-seal {
+      width: 76px;
+      height: 76px;
+      object-fit: contain;
+      margin: 8px 0 6px;
+      opacity: .96;
+    }
+
+    .certificate-footer {
+      width: 100%;
+      margin-top: 10px;
+      padding-top: 9px;
+      border-top: 1px solid currentColor;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 9px;
+      letter-spacing: .02em;
+    }
+
+    @media (max-width: 700px) {
+      .certificate-card {
+        min-height: 430px;
+        aspect-ratio: auto;
+        padding: 30px 30px 25px;
+      }
+
+      .certificate-student {
+        font-size: 28px;
+      }
+
+      .certificate-footer {
+        flex-direction: column;
+        gap: 4px;
+      }
+    }
+  </style>
+
   <!-- Meta Pixel Code -->
   <script>
   !function(f,b,e,v,n,t,s)
@@ -1102,34 +1220,35 @@
           </span>
 
           <div class="as-h2">
-            Finish the journey with
-            <span>a portfolio you can show.</span>
+            Complete the bootcamp.
+            <span>Build. Submit. Get certified.</span>
           </div>
 
           <p>
-            Receive your Swyam Prabha IT Academy Pvt. Ltd. AI / Machine Learning
-            certificate after successfully completing the required
-            curriculum and projects.
+            Participants of our AI / ML Bootcamp receive a
+            certificate after successfully completing and submitting the
+            assigned AI / ML project.
           </p>
 
           <div class="certificate-points">
 
             <div>
               <strong>01</strong>
-              <span>Course Completion Certificate</span>
+              <span>AI / ML Bootcamp</span>
             </div>
 
             <div>
               <strong>02</strong>
-              <span>Project-Based Assessment</span>
+              <span>Successful Project Submission</span>
             </div>
 
             <div>
               <strong>03</strong>
-              <span>Portfolio Projects</span>
+              <span>AI / ML Certificate</span>
             </div>
 
           </div>
+          <a class="btn btn-primary" href="../../bootcamp-certificate/">Submit Your Project <span class="btn-arrow">&rarr;</span></a>
 
         </div>
 
@@ -1137,22 +1256,33 @@
         <div class="certificate-card">
 
           <div class="certificate-brand">
-            Swyam Prabha IT Academy Pvt. Ltd.
+            <img
+              src="../../assets/images/logo/logo-mark.png"
+              alt="Swyam Prabha IT Academy Pvt. Ltd."
+            >
+            <span>Swyam Prabha IT Academy Pvt. Ltd.</span>
           </div>
 
-          <span>PROFESSIONAL CERTIFICATE</span>
+          <span class="certificate-title">CERTIFICATE OF PARTICIPATION &amp; PROJECT COMPLETION</span>
 
-          <p>This is to certify that</p>
+          <p class="certificate-intro">This certificate is proudly presented to</p>
 
-          <div class="as-h3">Student Name</div>
+          <div class="as-h3 certificate-student">Student Name</div>
 
-          <p>
-            has successfully completed the
+          <p class="certificate-copy">
+            for successfully participating in the
           </p>
 
           <strong class="certificate-course">
-            AI / Machine Learning
+            AI / ML Bootcamp
           </strong>
+
+          <p class="certificate-copy">
+            and successfully completing and submitting the assigned
+            <strong>AI / ML Project</strong>.
+          </p>
+
+          <img class="certificate-seal" src="../../assets/images/seal.PNG" alt="Swyam Prabha IT Academy certificate seal">
 
           <div class="certificate-footer">
 
