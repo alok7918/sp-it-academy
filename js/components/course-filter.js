@@ -17,11 +17,19 @@ function renderCourses(filter = "all") {
   const grid = document.getElementById("course-grid");
   if (!grid) return;
 
+  // Static (SEO) cards are already in the HTML: just show/hide them.
+  if (grid.dataset.static) {
+    grid.querySelectorAll(".course-card").forEach(card => {
+      card.hidden = !(filter === "all" || card.dataset.category === filter);
+    });
+    return;
+  }
+
   grid.innerHTML = courseData
     .filter(c => filter === "all" || c.category === filter)
     .map(c => `<a class="course-card" href="${courseHref(c.url)}">
         <span class="tag">${c.category.replace("-", " ")}</span>
-        <h3>${c.title}</h3>
+        <div class="as-h3">${c.title}</div>
         <p>${c.description}</p>
         <div class="course-bottom">
           <span>${c.duration}</span>
