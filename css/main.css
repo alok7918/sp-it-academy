@@ -2857,6 +2857,11 @@ padding-top: 30px;
 .contact-socials .s-fb::before { -webkit-mask-image: url("../assets/icons/facebook.svg"); mask-image: url("../assets/icons/facebook.svg"); }
 .contact-socials .s-wa::before { -webkit-mask-image: url("../assets/icons/whatsapp.svg"); mask-image: url("../assets/icons/whatsapp.svg"); }
 
+.section-heading > .btn {
+  margin-top: 28px;
+  margin-bottom: 12px;
+}
+
 .map-embed {
   border-radius: 18px;
   overflow: hidden;
