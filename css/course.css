@@ -2197,3 +2197,67 @@ select {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* =========================================================
+   COURSE DURATION TIMELINE
+========================================================= */
+
+.duration-track {
+  margin-top: 18px;
+  padding: 22px 25px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: white;
+  box-shadow: var(--shadow-md);
+}
+
+.duration-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px 16px;
+  margin-bottom: 14px;
+}
+
+.duration-head strong { font-size: 14px; }
+.duration-head span { color: var(--muted); font-size: 13px; }
+
+.duration-bar {
+  display: flex;
+  gap: 4px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.duration-seg {
+  min-width: 0;
+  padding: 12px 14px;
+  color: white;
+}
+
+.duration-seg span {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  opacity: .85;
+}
+
+.duration-seg b {
+  display: block;
+  margin-top: 3px;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.seg-train  { background: var(--primary); }
+.seg-pd     { background: var(--primary2); }
+.seg-intern { background: var(--green); color: var(--dark); }
+
+@media (max-width: 640px) {
+  .duration-bar { flex-direction: column; }
+  .duration-seg { flex: none !important; }
+}
